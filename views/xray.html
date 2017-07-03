@@ -1,0 +1,31 @@
+    <div class="container mtb">
+            <div class="row">
+                <div class="col-lg-8">
+                    <h4>{{vm.chestXrayHeader}}</h4>
+                    <div class="hline"></div>
+                    <p>Compare with post intubation chest Xray.</p>
+                    <form role="form" name="myForm">
+                        <table>
+                            <tr class="form-group" ng-repeat="choice in vm.chestXrayRecent">
+                                <th><label>{{choice.label}}</label></th>
+                                <th>
+                                    <input type="button"
+                                           class="btn btn-primary"
+                                           value="Continue"
+                                           ui-sref="{{choice.link}}"
+                                           ng-click="vm.enumCalc(choice)" />
+                                </th>
+                            </tr>
+                            <tr>
+                                <th></th>
+                                <th>
+                                    <href type="button" ng-click="vm.goBack()" class="btn btn-theme">Back</href>
+                                </th>
+                            </tr>
+                        </table>
+                    </form>
+                    <br />
+                    <br />
+                </div>
+            </div>
+        </div>
