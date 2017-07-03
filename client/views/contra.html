@@ -1,0 +1,28 @@
+          <div class="container mtb">
+            <div class="row">
+                <div class="col-lg-8">
+                    <h4>{{vm.contraindicationsHeader}}</h4>
+                    <div class="hline"></div>
+                    <p>After visually observing the patient, does the patient show any of the following listed below?</p>
+                    <form role="form" name="myForm">
+                        <table>
+                            <tr class="form-group" ng-repeat="choice in vm.contraindications">
+                                <th><label><span style="color:red">{{choice.label}}</span></label></th>
+                                <th>
+                                    <a type="button"
+                                           value="Yes"
+                                           class="btn btn-danger"
+                                           ui-sref="wean.fail">Yes</a>
+                                </th>
+                            </tr>
+                        </table>
+                        <br />
+                        <br />
+                        <button ui-sref="wean.labs" type="button" class="btn btn-primary" value="Send">Continue</button>
+                        <button ui-sref="wean.landing" type="button" class="btn btn-theme">Back</button>
+                    </form>
+                    <br />
+                    <br />
+                </div>
+            </div>
+        </div>
