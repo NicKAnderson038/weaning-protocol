@@ -29,4 +29,4 @@ Code for the MEAN Soup to Bits
 * `yarn global add gulp` to install Gulp globally
 * `yarn run watch` to start transpile watch. This command will read files under `client/src` and generate a single file under `client/dist/bundle.js` which should be included by index.html
 * `node server/app.js` connects your server with your db
-* Seed database: `mongoimport --db olympics-dev --collection sports --type json --file server/sports-seed.json --jsonArray --drop`
+* Seed database: `mongoimport --db olympics-dev --collection sports --type json --file server/sports-seed.json --jsonArray --drop`# weaning-protocol
