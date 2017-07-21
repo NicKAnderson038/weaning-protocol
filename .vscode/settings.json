@@ -2,7 +2,7 @@
     "files.exclude": {
         "**/.git": true,
         "**/.gitkeep": true,
-        "**/.gitignore": true,
+        //"**/.gitignore": true,
         "**/.svn": true,
         "**/.hg": true,
         "**/CVS": true,
@@ -14,7 +14,7 @@
         // "**/node_modules": true
     },
     "express.portNumber": 8110,
-    "express.relativeRoot": "./client",
+    "express.relativeRoot": "./client/dist",
     "minify.minifyExistingOnSave": true,
     "minify.js": {
         "mangle": true,

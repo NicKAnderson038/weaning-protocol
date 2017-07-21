@@ -13,8 +13,12 @@
   },
   "dependencies": {
     "angular": "^1.6.4",
+    "angular-animate": "1.6.4",
+    "angular-toastr": "^2.1.1",
     "angular-ui-router": "^1.0.3",
+    "bootstrap": "^3.3.7",
     "express": "^4.15.3",
+    "jquery": "^3.2.1",
     "ng-storage": "^0.3.2"
   },
   "devDependencies": {
@@ -23,6 +27,11 @@
     "babelify": "^7.3.0",
     "browserify": "^14.4.0",
     "gulp": "^3.9.1",
+    "gulp-clean-css": "^3.7.0",
+    "gulp-concat-css": "^2.3.0",
+    "gulp-htmlmin": "^3.0.0",
+    "gulp-imagemin": "^3.3.0",
+    "gulp-sourcemaps": "^2.6.0",
     "gulp-uglify": "^3.0.0",
     "vinyl-buffer": "^1.0.0",
     "vinyl-source-stream": "^1.1.0"

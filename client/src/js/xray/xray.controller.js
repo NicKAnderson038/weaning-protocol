@@ -8,10 +8,12 @@
     function Xray($state, $sessionStorage, factoryService) {
         var vm = this;
 
+        vm.$state = $state
         vm.$sessionStorage = $sessionStorage
 
         vm.goBack = _goBack
         vm.enumCalc = _enumCalc
+
         vm.array = []
         vm.chestXrayHeader = "Chest X-ray"
         vm.chestXrayRecent = [{
@@ -47,10 +49,13 @@
 
         function activate() {
             console.log('sub-state ' + vm.chestXrayHeader + ' loaded!')
+            if (vm.$sessionStorage.formData.backBtn == undefined) {
+                return vm.$state.go('wean.landing')
+            }
         }
 
         function _goBack() {
-            window.history.back()
+            vm.$state.go($sessionStorage.formData.backBtn)
         }
 
         function _enumCalc(e) {
@@ -59,6 +64,8 @@
             vm.$sessionStorage.formData.xray = vm.array
             //factoryService.xray(vm.array)
             $sessionStorage.formData.enum = x + $sessionStorage.formData.enum
+            vm.$sessionStorage.formData.backBtn = $state.$current.toString().substring(5)
+            vm.$state.go('wean.secretion')
             console.log($sessionStorage.formData)
         }
         

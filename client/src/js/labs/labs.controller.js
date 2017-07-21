@@ -11,11 +11,12 @@
 
         vm.$scope = $scope
         vm.$state = $state
-        vm.$sessionStorage = $sessionStorage;
+        vm.$sessionStorage = $sessionStorage
 
-        vm.goBack = _goBack;
-        vm.enumCalc = _enumCalc;
+        vm.goBack = _goBack
+        vm.enumCalc = _enumCalc
         vm.selected = _selected
+
         vm.labsHeader = 'Labs';
         vm.array = [];
         vm.labs = [{
@@ -45,11 +46,14 @@
         ////////////////
 
         function activate() {
-            console.log('sub-state ' + vm.labsHeader + ' loaded!');
+            console.log('sub-state ' + vm.labsHeader + ' loaded!')
+            if (vm.$sessionStorage.formData.backBtn == undefined) {
+                return vm.$state.go('wean.landing')
+            }
         }
 
         function _goBack() {
-            window.history.back();
+            vm.$state.go($sessionStorage.formData.backBtn)   
         }
 
         function _enumCalc(e) {
@@ -71,10 +75,11 @@
         function _selected() {
             let x = vm.array.length
             //factoryService.labs(vm.array)
-            $sessionStorage.formData.labs = vm.array
-            $sessionStorage.formData.enum = x * $sessionStorage.formData.enum
+            vm.$sessionStorage.formData.backBtn = $state.$current.toString().substring(5)
+            vm.$sessionStorage.formData.labs = vm.array
+            vm.$sessionStorage.formData.enum = x * $sessionStorage.formData.enum
             console.log($sessionStorage.formData)
-            $state.go('wean.cbc')
+            vm.$state.go('wean.cbc')
         }
 
     }

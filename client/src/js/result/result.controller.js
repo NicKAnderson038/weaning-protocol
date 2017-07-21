@@ -6,13 +6,14 @@
     Result.$inject = ['$scope', '$state', '$sessionStorage', 'factoryService'];
 
     function Result($scope, $state, $sessionStorage, factoryService) {
-        var vm = this;
+        var vm = this
 
-        vm.$scope = $scope;
-        vm.$sessionStorage = $sessionStorage;
+        vm.$scope = $scope
+        vm.$state = $state
+        vm.$sessionStorage = $sessionStorage
 
-        vm.goBack = _goBack;
-        vm.test = _test;
+        vm.goBack = _goBack
+        vm.test = _test
         //vm.factoryTest = _factoryTest
 
         vm.resultHeader = "'result'";
@@ -155,7 +156,9 @@
         ////////////////
 
         function activate() {
-
+            if (vm.$sessionStorage.formData.backBtn == undefined) {
+                return vm.$state.go('wean.landing')
+            }
             //factoryService.lungs(vm.$sessionStorage.lungs)
             console.log('sub-state ' + vm.resultHeader + ' loaded!');
             console.log($state.$current.includes["wean.result"]);
@@ -230,7 +233,7 @@
 
 
         function _goBack() {
-            window.history.back();
+            vm.$state.go($sessionStorage.formData.backBtn)
         }
 
 

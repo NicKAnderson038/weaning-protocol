@@ -8,38 +8,35 @@
     function Cardiac($scope, $state, $sessionStorage, factoryService) {
         var vm = this
         
+        vm.$state = $state
         vm.$sessionStorage = $sessionStorage
 
         vm.goBack = _goBack
         vm.enumCalc = _enumCalc
         vm.selected = _selected
+
         vm.array = []
         vm.cardiacHeader = "Cardiac"
         vm.cardiac = [{
             "id": 10,
             "enum": 3,
             "link": "/",
-            "label": "Blood pressure within normal limits?"
+            "label": "BP within normal limits without medication?"
         }, {
             "id": 10,
             "enum": 2,
             "link": "/",
-            "label": "BP low & stable on low dosage of vassopressor?"
+            "label": "BP low on LOW dosage of vassopressor?"
         }, {
             "id": 10,
-            "enum": 2,
+            "enum": 1,
             "link": "/",
-            "label": "BP high & stable on low dosage of anti hypertensive medication?"
+            "label": "BP low on HIGH dosage of anti hypertensive medication?"
         }, {
             "id": 11,
-            "enum": 4,
-            "link": "/",
-            "label": "Asymptomatic or NO arrythemias present?"
-        }, {
-            "id": 12,
             "enum": 3,
             "link": "/",
-            "label": "Heart Rate ok?"
+            "label": "Asymptomatic or NO arrythemias present?"
         }, {
             "id": 12,
             "enum": 3,
@@ -52,12 +49,14 @@
         ////////////////
 
         function activate() {
-            //factoryService.lungs(vm.$sessionStorage.lungs)
-            console.log('sub-state ' + vm.cardiacHeader + ' loaded!');
+            console.log('sub-state ' + vm.cardiacHeader + ' loaded!')
+            if (vm.$sessionStorage.formData.backBtn == undefined) {
+                return vm.$state.go('wean.landing')
+            }
         }
 
         function _goBack() {
-            window.history.back();
+            vm.$state.go($sessionStorage.formData.backBtn)
         }
 
         // function _enumCalc(e) {
@@ -86,6 +85,7 @@
             //factoryService.cardiac(vm.array)
             vm.$sessionStorage.formData.cardiac = vm.array
             $sessionStorage.formData.enum = x + $sessionStorage.formData.enum
+            vm.$sessionStorage.formData.backBtn = $state.$current.toString().substring(5)
             $state.go('wean.neuro')
             console.log($sessionStorage.formData)
         }

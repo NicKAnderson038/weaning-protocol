@@ -4,7 +4,6 @@
             <h4>Areas of concern: Consult physician prior to ventilator weaning.</h4>
             <div class="hline"></div>
             <form role="form">
-
                 <!-- serial-line-graph -->
                 <h3>Serial Line Stacked</h3>
                 Category 1 x Graph 1 Value
@@ -13,19 +12,18 @@
                 </amchart>
                 <br/>
                 <br/>
-                <button class="btn btn-primary" ui-sref="wean.landing">Home</button>
-                <!--<button class="btn btn-warning" ng-click="vm.test()">Test</button>-->
+                <!--<button class="btn btn-primary" ui-sref="wean.landing">Home</button>-->
                 <!-- /serial-line-graph -->
                 <div ng-repeat="item in vm.calculationArray">
                     <P ng-show="item.selected" class="form-group">
                         {{item.body}}
                     </P>
                 </div>
-                <br />
+                <!--<br />-->
                 
-                <button type="button" ng-click="vm.goBack()" class="btn btn-theme">Back</button>
+                <!--<button type="button" ng-click="vm.goBack()" class="btn btn-theme">Back</button>
                 <br />
-                <br />
+                <br />-->
             </form>
         </div>
         <div class="col-lg-4">

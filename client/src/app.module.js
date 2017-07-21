@@ -1,6 +1,10 @@
 import angular from 'angular'
 import 'angular-ui-router'
 import 'ng-storage'
+import 'angular-toastr'
+import 'angular-animate'
+// import 'bootstrap'
+// import jQuery from 'jquery'
 
 import "./js/bower_components/amcharts/dist/amcharts/amcharts.js"
 // import "./js/bower_components/amcharts/dist/amcharts/pie.js"
@@ -66,7 +70,9 @@ import './js/result/result.controller.js'
         'app.amchartDirective.serial',
         'AngularAmChart', 
         'ui.router', 
-        'ngStorage'])
+        'ngStorage',
+        'toastr',
+        'ngAnimate'])
     .config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $urlRouterProvider) {
         $urlRouterProvider.when('', '/wean/landing');
         $urlRouterProvider.rule(function ($injector, $location) {

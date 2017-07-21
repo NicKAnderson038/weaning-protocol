@@ -8,12 +8,14 @@
     function Secretion($state, $sessionStorage, factoryService) {
         var vm = this;
 
+        vm.$state = $state
         vm.$sessionStorage = $sessionStorage
 
-        vm.goBack = _goBack;
-        vm.enumCalc = _enumCalc;
-        vm.array = [];
-        vm.secretionHeader = "Secretions";
+        vm.goBack = _goBack
+        vm.enumCalc = _enumCalc
+
+        vm.array = []
+        vm.secretionHeader = "Secretions"
         vm.secretionArray = [{
             "id": 12,
             "enum": 3,
@@ -36,11 +38,14 @@
         ////////////////
 
         function activate() {
-            console.log('sub-state ' + vm.secretionHeader + ' loaded!');
+            console.log('sub-state ' + vm.secretionHeader + ' loaded!')
+            if (vm.$sessionStorage.formData.backBtn == undefined) {
+                return vm.$state.go('wean.landing')
+            }
         }
 
         function _goBack() {
-            window.history.back();
+            vm.$state.go($sessionStorage.formData.backBtn)
         }
 
         function _enumCalc(e) {
@@ -49,6 +54,8 @@
             //factoryService.secretion(vm.array)
             vm.$sessionStorage.formData.secretion = vm.array
             $sessionStorage.formData.enum = x + $sessionStorage.formData.enum
+            vm.$sessionStorage.formData.backBtn = $state.$current.toString().substring(5)
+            vm.$state.go('wean.lungs')
             console.log($sessionStorage.formData)
         }
     }

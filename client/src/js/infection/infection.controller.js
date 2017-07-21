@@ -8,11 +8,13 @@
     function Infection($state, $sessionStorage, factoryService) {
         var vm = this;
 
+        vm.$state = $state
         vm.$sessionStorage = $sessionStorage
 
         vm.goBack = _goBack
         vm.enumCalc = _enumCalc
         vm.selected = _selected
+
         vm.sourceHeader = "Source of Infection"
         vm.array = []
         vm.infection = [{
@@ -47,11 +49,14 @@
         ////////////////
 
         function activate() {
-            console.log('sub-state ' + vm.sourceHeader + ' loaded!');
+            console.log('sub-state ' + vm.sourceHeader + ' loaded!')
+            if(vm.$sessionStorage.formData.backBtn.indexOf('wean') == -1){
+                vm.$state.go('wean.landing')
+            }
         }
 
         function _goBack() {
-            window.history.back();
+            vm.$state.go($sessionStorage.formData.backBtn)
         }
 
         // function _enumCalc(e) {
@@ -78,8 +83,9 @@
         function _selected() {
             //factoryService.infection(vm.array)
             vm.$sessionStorage.formData.infection = vm.array
+            vm.$sessionStorage.formData.backBtn = $state.$current.toString().substring(5)
             console.log($sessionStorage.formData)
-            $state.go('wean.xray')
+            vm.$state.go('wean.xray')
         }
     }
 })();
