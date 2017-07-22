@@ -4972,7 +4972,7 @@ angular.module('app.amchartDirective.serial', []).directive('amchartSerial', fun
         vm.$state = $state;
         vm.$sessionStorage = $sessionStorage;
 
-        vm.goBack = _goBack;
+        // vm.goBack = _goBack
         vm.test = _test;
         //vm.factoryTest = _factoryTest
 
