@@ -9,13 +9,15 @@ import sourcemaps from 'gulp-sourcemaps'
 import htmlmin from 'gulp-htmlmin'
 import imagemin from 'gulp-imagemin'
 
+
 const gulpTasks = [
   'transpile',
   'minify-concat-css',
   'indexHTML',
   'minifyHTML',
   'minifyIcon',
-  'fonts'
+  'fonts',
+  'lib'
 ]
 
 const css = [
@@ -27,8 +29,14 @@ const css = [
     "src/css/style.css",
 ]
 
+const lib = [
+    'src/lib/jquery.min.js',
+    'src/lib/bootstrap.min.js'
+]
+
 gulp.task("default", gulpTasks)
 
+/* BUNDLE JS */
 gulp.task("transpile", () => {
 
   return browserify("src/app.module.js")
@@ -47,6 +55,7 @@ gulp.task("transpile", () => {
 
 })
 
+/* CSS */
 gulp.task('minify-concat-css', () => {
   return gulp.src(css)
     .pipe(cleanCSS({
@@ -59,6 +68,7 @@ gulp.task('minify-concat-css', () => {
     .pipe(gulp.dest('dist/css'))
 })
 
+/* HTML */
 gulp.task('indexHTML', () => {
     return gulp.src(['index.html'])
       .pipe(htmlmin({
@@ -83,6 +93,7 @@ gulp.task('minifyHTML', () => {
       .pipe(gulp.dest('dist/views'))
 })
 
+/* IMAGES */
 gulp.task('minifyIcon', () => {
     return gulp.src(['src/img/Medical-Sign-icon.png'])
       .pipe(imagemin({
@@ -93,6 +104,7 @@ gulp.task('minifyIcon', () => {
       .pipe(gulp.dest('dist/img'))
 })
 
+/* FONTS */
 gulp.task('fonts', function (){
   return gulp.src([
     'src/fonts/*'
@@ -100,6 +112,14 @@ gulp.task('fonts', function (){
   .pipe(gulp.dest('dist/fonts'))
 })
 
+/* LIBRARY */
+gulp.task('lib', ['transpile'], function () {
+    return gulp.src(lib)
+        .pipe(gulp.dest('dist/lib'))
+})
+
+
+/* GULP WATCH LIST */
 gulp.task("watch", ["transpile"], () => {
-  gulp.watch("src/**/*", ["transpile"]);
+  gulp.watch("src/**/*", ["transpile"])
 });
