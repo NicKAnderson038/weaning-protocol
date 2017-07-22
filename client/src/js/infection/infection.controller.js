@@ -50,13 +50,17 @@
 
         function activate() {
             console.log('sub-state ' + vm.sourceHeader + ' loaded!')
-            if(vm.$sessionStorage.formData.backBtn.indexOf('wean') == -1){
-                vm.$state.go('wean.landing')
+             if (vm.$sessionStorage.formData.enum == undefined) {
+                return vm.$state.go('wean.landing')
             }
         }
 
         function _goBack() {
-            vm.$state.go($sessionStorage.formData.backBtn)
+            // vm.$state.go($sessionStorage.formData.backBtn)
+            if(vm.$sessionStorage.formData.infection != undefined){
+                vm.$sessionStorage.formData.infection = undefined
+            }
+            window.history.back()
         }
 
         // function _enumCalc(e) {
@@ -83,7 +87,7 @@
         function _selected() {
             //factoryService.infection(vm.array)
             vm.$sessionStorage.formData.infection = vm.array
-            vm.$sessionStorage.formData.backBtn = $state.$current.toString().substring(5)
+            // vm.$sessionStorage.formData.backBtn = $state.$current.toString().substring(5)
             console.log($sessionStorage.formData)
             vm.$state.go('wean.xray')
         }

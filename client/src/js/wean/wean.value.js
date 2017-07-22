@@ -15,7 +15,7 @@
         this.cardiac
         this.neuro
         this.timeEnd
-        this.enum = 1
+        this.enum = undefined
     }
 
 

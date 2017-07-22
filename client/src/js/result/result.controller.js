@@ -156,7 +156,7 @@
         ////////////////
 
         function activate() {
-            if (vm.$sessionStorage.formData.backBtn == undefined) {
+            if (vm.$sessionStorage.formData.enum == undefined) {
                 return vm.$state.go('wean.landing')
             }
             //factoryService.lungs(vm.$sessionStorage.lungs)
@@ -232,9 +232,12 @@
         }
 
 
-        function _goBack() {
-            vm.$state.go($sessionStorage.formData.backBtn)
-        }
+        // function _goBack() {
+        //     if(vm.$sessionStorage.formData.timeEnd != undefined){
+        //         vm.$sessionStorage.formData.timeEnd = undefined
+        //     }
+        //     window.history.back()
+        // }
 
 
     }

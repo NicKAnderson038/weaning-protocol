@@ -20,12 +20,17 @@
             "id": 12,
             "enum": 3,
             "link": "wean.lungs",
-            "label": "Moderate amount with in-frequent succoning?"
+            "label": "Small/None from succoning?"
+        }, {
+            "id": 12,
+            "enum": 3,
+            "link": "wean.lungs",
+            "label": "Moderate amount from succoning?"
         }, {
             "id": 12,
             "enum": 2,
             "link": "wean.lungs",
-            "label": "Large amount with in-frequent succoning?"
+            "label": "Large amount from succoning?"
         }, {
             "id": 12,
             "enum": 1,
@@ -39,13 +44,17 @@
 
         function activate() {
             console.log('sub-state ' + vm.secretionHeader + ' loaded!')
-            if (vm.$sessionStorage.formData.backBtn == undefined) {
+            if (vm.$sessionStorage.formData.enum == undefined) {
                 return vm.$state.go('wean.landing')
             }
         }
 
         function _goBack() {
-            vm.$state.go($sessionStorage.formData.backBtn)
+            // vm.$state.go($sessionStorage.formData.backBtn)
+            if(vm.$sessionStorage.formData.secretion != undefined){
+                vm.$sessionStorage.formData.secretion = undefined
+            }
+            window.history.back()
         }
 
         function _enumCalc(e) {
@@ -54,7 +63,7 @@
             //factoryService.secretion(vm.array)
             vm.$sessionStorage.formData.secretion = vm.array
             $sessionStorage.formData.enum = x + $sessionStorage.formData.enum
-            vm.$sessionStorage.formData.backBtn = $state.$current.toString().substring(5)
+            // vm.$sessionStorage.formData.backBtn = $state.$current.toString().substring(5)
             vm.$state.go('wean.lungs')
             console.log($sessionStorage.formData)
         }

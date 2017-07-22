@@ -42,18 +42,20 @@
 
         function activate() {
             console.log('sub-state ' + vm.contraindicationsHeader + ' loaded!')
-            if (vm.$sessionStorage.formData.backBtn == undefined) {
+            if (vm.$sessionStorage.formData.enum == undefined) {
                 return vm.$state.go('wean.landing')
             }
+            console.log(vm.$sessionStorage.formData)
         }
 
         function _selected() {
-		    vm.$sessionStorage.formData.backBtn = $state.$current.toString().substring(5)
+		    // vm.$sessionStorage.formData.backBtn = $state.$current.toString().substring(5)
             vm.$state.go('wean.labs')	
 	    }
 
         function _goBack() {
-            vm.$state.go(vm.$sessionStorage.formData.backBtn)
+            // vm.$state.go(vm.$sessionStorage.formData.backBtn)
+            window.history.back()
             console.log(vm.$sessionStorage.formData)
         }
 

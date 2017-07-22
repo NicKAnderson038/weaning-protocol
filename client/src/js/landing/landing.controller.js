@@ -22,7 +22,7 @@
 
         function activate() {
             console.log('sub-state ' + vm.landingHeader + ' loaded!')
-            if(vm.$sessionStorage.formData.enum > 1){
+            if(vm.$sessionStorage.formData.enum > 0){
                 $sessionStorage.formData = new FormDataModel();
             }
             console.log($sessionStorage.formData)
@@ -37,9 +37,9 @@
                 //vm.$sessionStorage.timeBegin = datestring;
                 //factoryService.timeBegin(vm.$sessionStorage.timeBegin)
               
-                vm.$sessionStorage.formData.backBtn = $state.$current.toString().substring(5)
+                vm.$sessionStorage.formData.enum = 1
                 vm.$sessionStorage.formData.timeBegin = datestring
-                
+                vm.$state.go('wean.contra')
                 
                 // console.log(FormDataModel.timeBegin)
                 // this.formData = FormDataModel;

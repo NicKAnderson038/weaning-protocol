@@ -37,13 +37,17 @@
 
         function activate() {
             console.log('sub-state ' + vm.neuroHeader + ' loaded!')
-            if (vm.$sessionStorage.formData.backBtn == undefined) {
+            if (vm.$sessionStorage.formData.enum == undefined) {
                 return vm.$state.go('wean.landing')
             }
         }
 
         function _goBack() {
-            vm.$state.go($sessionStorage.formData.backBtn)
+            // vm.$state.go($sessionStorage.formData.backBtn)
+            if(this.$sessionStorage.formData.neuro != undefined){
+                this.$sessionStorage.formData.neuro = undefined
+            }
+            window.history.back()
         }
 
         function _enumCalc(e) {
@@ -67,7 +71,7 @@
             //factoryService.neuro(vm.array)
             vm.$sessionStorage.formData.neuro = vm.array
             $sessionStorage.formData.enum = x + $sessionStorage.formData.enum
-            vm.$sessionStorage.formData.backBtn = $state.$current.toString().substring(5)
+            // vm.$sessionStorage.formData.backBtn = $state.$current.toString().substring(5)
             $state.go('wean.result')
             console.log($sessionStorage.formData)
         }

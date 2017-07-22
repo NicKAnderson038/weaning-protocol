@@ -78,21 +78,25 @@
 
         function activate() {
             console.log('sub-state ' + vm.lungsHeader + ' loaded!')
-            if (vm.$sessionStorage.formData.backBtn == undefined) {
+            if (vm.$sessionStorage.formData.enum == undefined) {
                 return vm.$state.go('wean.landing')
             }
         }
     }
 
     function _goBack() {
-        this.$state.go(this.$sessionStorage.formData.backBtn)
+        // this.$state.go(this.$sessionStorage.formData.backBtn)
+        if(this.$sessionStorage.formData.lungs != undefined){
+                this.$sessionStorage.formData.lungs = undefined
+            }
+        window.history.back()
     }
 
     function _selected() {
         console.log(this.array)
-        this.$sessionStorage.lungs = this.array
+        // this.$sessionStorage.lungs = this.array
         this.$sessionStorage.formData.lungs = this.array
-        this.$sessionStorage.formData.backBtn = this.$state.$current.toString().substring(5)
+        // this.$sessionStorage.formData.backBtn = this.$state.$current.toString().substring(5)
         this.$state.go('wean.cardiac')
     }
 
@@ -108,19 +112,19 @@
             //     factoryService.lungs(this.array)
             // }
         }
-        console.log(x.toggle);
-        console.log("meow");
+        console.log(x.toggle)
+        console.log("meow")
         if (x.toggle) {
-            console.log("open");
-            console.log(x.count);
-            this.disabled2 = false;
-            x.toggle = false;
-        } else if (x.id === 1 && (x.count.length > 2 || x.count.length < 2 || x.count.charAt(0) === "0" || x.count.charAt(0) === "1")) {
-            this.toastr.error("FiO2 is incorrect. \nRe-enter FiO2.", 'Error');
-            return;
+            console.log("open")
+            console.log(x.count)
+            this.disabled2 = false
+            x.toggle = false
+        } else if ((x.id === 1 && x.count.toString() != '100') && (x.count.length > 2 || x.count.length < 2 || x.count.charAt(0) === "0" || x.count.charAt(0) === "1")) {
+            this.toastr.error("FiO2 is incorrect. \nRe-enter FiO2.", 'Error')
+            return
         } else if (x.id === 1 && x.count.charAt(0) === "2" && x.count.charAt(1) === "0") {
-            this.toastr.error('FiO2 20%? \nOnly possible in a hypoberic Chamber.', 'Error');
-            return;
+            this.toastr.error('FiO2 20%? \nOnly possible in a hypoberic Chamber.', 'Error')
+            return
         } 
         // else if (x.id === 2 && (x.count.length > 3 || x.count.length < 3 || x.count.charAt(0) === "0" || x.count.charAt(0) === "1" || x.count.charAt(0) === "9")) {
         //     toastr.error("Tidal Volume is incorrect. \nRe-enter Vt.");

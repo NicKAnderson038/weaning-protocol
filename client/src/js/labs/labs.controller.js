@@ -47,13 +47,17 @@
 
         function activate() {
             console.log('sub-state ' + vm.labsHeader + ' loaded!')
-            if (vm.$sessionStorage.formData.backBtn == undefined) {
+            if (vm.$sessionStorage.formData.enum == undefined) {
                 return vm.$state.go('wean.landing')
             }
         }
 
         function _goBack() {
-            vm.$state.go($sessionStorage.formData.backBtn)   
+            // vm.$state.go($sessionStorage.formData.backBtn)
+            if(vm.$sessionStorage.formData.labs != undefined){
+                vm.$sessionStorage.formData.labs = undefined
+            }
+            window.history.back()  
         }
 
         function _enumCalc(e) {
@@ -75,7 +79,7 @@
         function _selected() {
             let x = vm.array.length
             //factoryService.labs(vm.array)
-            vm.$sessionStorage.formData.backBtn = $state.$current.toString().substring(5)
+            // vm.$sessionStorage.formData.backBtn = $state.$current.toString().substring(5)
             vm.$sessionStorage.formData.labs = vm.array
             vm.$sessionStorage.formData.enum = x * $sessionStorage.formData.enum
             console.log($sessionStorage.formData)
