@@ -9,6 +9,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "watch": "gulp watch --gulpfile client/gulpfile.babel.js",
     "build": "gulp --gulpfile client/gulpfile.babel.js",
+    "dev": "gulp --gulpfile client/gulpfile.babel.js",
+    "prod": "cross-env NODE_ENV=production gulp --gulpfile client/gulpfile.babel.js",
     "start": "node express_server/app.js"
   },
   "dependencies": {
@@ -26,10 +28,12 @@
     "babel-preset-es2015": "^6.24.1",
     "babelify": "^7.3.0",
     "browserify": "^14.4.0",
+    "cross-env": "^5.0.1",
     "gulp": "^3.9.1",
     "gulp-clean-css": "^3.7.0",
     "gulp-concat-css": "^2.3.0",
     "gulp-htmlmin": "^3.0.0",
+    "gulp-if": "^2.0.2",
     "gulp-imagemin": "^3.3.0",
     "gulp-sourcemaps": "^2.6.0",
     "gulp-uglify": "^3.0.0",
