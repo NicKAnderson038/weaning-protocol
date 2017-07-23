@@ -58,6 +58,9 @@
             // vm.$state.go($sessionStorage.formData.backBtn)
             if(vm.$sessionStorage.formData.xray != undefined){
                 vm.$sessionStorage.formData.xray = undefined
+            }else{
+                vm.$sessionStorage.formData.enum.pop()
+                console.log(vm.$sessionStorage.formData.enum)
             }
             window.history.back()
         }
@@ -67,7 +70,8 @@
             vm.array.push(e)
             vm.$sessionStorage.formData.xray = vm.array
             //factoryService.xray(vm.array)
-            $sessionStorage.formData.enum = x + $sessionStorage.formData.enum
+            // vm.$sessionStorage.formData.enum = x + $sessionStorage.formData.enum
+            vm.$sessionStorage.formData.enum.push(x)
             // vm.$sessionStorage.formData.backBtn = $state.$current.toString().substring(5)
             vm.$state.go('wean.secretion')
             console.log($sessionStorage.formData)

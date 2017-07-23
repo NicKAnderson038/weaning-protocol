@@ -58,6 +58,9 @@
             //vm.$state.go($sessionStorage.formData.backBtn)
             if(vm.$sessionStorage.formData.cbc != undefined){
                 vm.$sessionStorage.formData.cbc = undefined
+            }else{
+                vm.$sessionStorage.formData.enum.pop()
+                console.log(vm.$sessionStorage.formData.enum)
             }
             window.history.back()
         }
@@ -66,13 +69,17 @@
             let x = e.enum
             vm.array.push(e);
             vm.$sessionStorage.formData.cbc = vm.array
-            $sessionStorage.formData.enum = x + $sessionStorage.formData.enum
+            // $sessionStorage.formData.enum = x + $sessionStorage.formData.enum
+            
             //factoryService.cbc(vm.array)
             // vm.$sessionStorage.formData.backBtn = $state.$current.toString().substring(5)
             if(vm.$sessionStorage.formData.cbc[0].label == 'WBC 5 - 10'){
                 //vm.$sessionStorage.formData.infection = ['Cbc with in normal limits']
+                let circle = x + 3
+                vm.$sessionStorage.formData.enum.push(circle)
                 vm.$state.go('wean.xray')
             }else{
+                vm.$sessionStorage.formData.enum.push(x)
                 vm.$state.go('wean.infection')
             }
             console.log($sessionStorage.formData)

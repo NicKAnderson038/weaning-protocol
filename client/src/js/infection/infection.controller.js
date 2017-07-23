@@ -24,22 +24,22 @@
             "selected": false
         }, {
             "id": 15,
-            "enum": 4194304,
+            "enum": null,
             "label": "Respiratory infection?",
             "selected": false
         }, {
             "id": 16,
-            "enum": 8386808,
+            "enum": null,
             "label": "Urine infection?",
             "selected": false
         }, {
             "id": 17,
-            "enum": 16777216,
+            "enum": null,
             "label": "Other?",
             "selected": false
         }, {
             "id": 18,
-            "enum": 33554432,
+            "enum": null,
             "label": "Unknown or result pending?",
             "selected": false
         }];

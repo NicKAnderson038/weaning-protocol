@@ -4096,6 +4096,9 @@ angular.module('AngularAmChart', []).directive('amchart', function () {
             // vm.$state.go($sessionStorage.formData.backBtn)
             if (this.$sessionStorage.formData.cardiac != undefined) {
                 this.$sessionStorage.formData.cardiac = undefined;
+            } else {
+                vm.$sessionStorage.formData.enum.pop();
+                console.log(vm.$sessionStorage.formData.enum);
             }
             window.history.back();
         }
@@ -4125,9 +4128,10 @@ angular.module('AngularAmChart', []).directive('amchart', function () {
             var x = 2 * vm.array.length;
             //factoryService.cardiac(vm.array)
             vm.$sessionStorage.formData.cardiac = vm.array;
-            $sessionStorage.formData.enum = x + $sessionStorage.formData.enum;
+            // vm.$sessionStorage.formData.enum = x + $sessionStorage.formData.enum
+            vm.$sessionStorage.formData.enum.push(x
             // vm.$sessionStorage.formData.backBtn = $state.$current.toString().substring(5)
-            $state.go('wean.neuro');
+            );$state.go('wean.neuro');
             console.log($sessionStorage.formData);
         }
     }
@@ -4205,6 +4209,9 @@ angular.module('AngularAmChart', []).directive('amchart', function () {
             //vm.$state.go($sessionStorage.formData.backBtn)
             if (vm.$sessionStorage.formData.cbc != undefined) {
                 vm.$sessionStorage.formData.cbc = undefined;
+            } else {
+                vm.$sessionStorage.formData.enum.pop();
+                console.log(vm.$sessionStorage.formData.enum);
             }
             window.history.back();
         }
@@ -4213,13 +4220,17 @@ angular.module('AngularAmChart', []).directive('amchart', function () {
             var x = e.enum;
             vm.array.push(e);
             vm.$sessionStorage.formData.cbc = vm.array;
-            $sessionStorage.formData.enum = x + $sessionStorage.formData.enum;
+            // $sessionStorage.formData.enum = x + $sessionStorage.formData.enum
+
             //factoryService.cbc(vm.array)
             // vm.$sessionStorage.formData.backBtn = $state.$current.toString().substring(5)
             if (vm.$sessionStorage.formData.cbc[0].label == 'WBC 5 - 10') {
                 //vm.$sessionStorage.formData.infection = ['Cbc with in normal limits']
+                var circle = x + 3;
+                vm.$sessionStorage.formData.enum.push(circle);
                 vm.$state.go('wean.xray');
             } else {
+                vm.$sessionStorage.formData.enum.push(x);
                 vm.$state.go('wean.infection');
             }
             console.log($sessionStorage.formData);
@@ -4430,22 +4441,22 @@ angular.module('app.amchartDirective.serial', []).directive('amchartSerial', fun
             "selected": false
         }, {
             "id": 15,
-            "enum": 4194304,
+            "enum": null,
             "label": "Respiratory infection?",
             "selected": false
         }, {
             "id": 16,
-            "enum": 8386808,
+            "enum": null,
             "label": "Urine infection?",
             "selected": false
         }, {
             "id": 17,
-            "enum": 16777216,
+            "enum": null,
             "label": "Other?",
             "selected": false
         }, {
             "id": 18,
-            "enum": 33554432,
+            "enum": null,
             "label": "Unknown or result pending?",
             "selected": false
         }];
@@ -4565,6 +4576,9 @@ angular.module('app.amchartDirective.serial', []).directive('amchartSerial', fun
             // vm.$state.go($sessionStorage.formData.backBtn)
             if (vm.$sessionStorage.formData.labs != undefined) {
                 vm.$sessionStorage.formData.labs = undefined;
+            } else {
+                vm.$sessionStorage.formData.enum.pop();
+                console.log(vm.$sessionStorage.formData.enum);
             }
             window.history.back();
         }
@@ -4590,7 +4604,8 @@ angular.module('app.amchartDirective.serial', []).directive('amchartSerial', fun
             //factoryService.labs(vm.array)
             // vm.$sessionStorage.formData.backBtn = $state.$current.toString().substring(5)
             vm.$sessionStorage.formData.labs = vm.array;
-            vm.$sessionStorage.formData.enum = x * $sessionStorage.formData.enum;
+            // vm.$sessionStorage.formData.enum = x * $sessionStorage.formData.enum
+            vm.$sessionStorage.formData.enum.push(x);
             console.log($sessionStorage.formData);
             vm.$state.go('wean.cbc');
         }
@@ -4648,7 +4663,7 @@ angular.module('app.amchartDirective.serial', []).directive('amchartSerial', fun
                 //vm.$sessionStorage.timeBegin = datestring;
                 //factoryService.timeBegin(vm.$sessionStorage.timeBegin)
 
-                vm.$sessionStorage.formData.enum = 1;
+                vm.$sessionStorage.formData.enum = [0];
                 vm.$sessionStorage.formData.timeBegin = datestring;
                 vm.$state.go('wean.contra'
 
@@ -4914,6 +4929,9 @@ angular.module('app.amchartDirective.serial', []).directive('amchartSerial', fun
             // vm.$state.go($sessionStorage.formData.backBtn)
             if (this.$sessionStorage.formData.neuro != undefined) {
                 this.$sessionStorage.formData.neuro = undefined;
+            } else {
+                vm.$sessionStorage.formData.enum.pop();
+                console.log(vm.$sessionStorage.formData.enum);
             }
             window.history.back();
         }
@@ -4938,9 +4956,10 @@ angular.module('app.amchartDirective.serial', []).directive('amchartSerial', fun
             var x = 2 * vm.array.length;
             //factoryService.neuro(vm.array)
             vm.$sessionStorage.formData.neuro = vm.array;
-            $sessionStorage.formData.enum = x + $sessionStorage.formData.enum;
+            // vm.$sessionStorage.formData.enum = x + $sessionStorage.formData.enum
+            vm.$sessionStorage.formData.enum.push(x
             // vm.$sessionStorage.formData.backBtn = $state.$current.toString().substring(5)
-            $state.go('wean.result');
+            );$state.go('wean.result');
             console.log($sessionStorage.formData);
         }
     }
@@ -4975,6 +4994,9 @@ angular.module('app.amchartDirective.serial', []).directive('amchartSerial', fun
         // vm.goBack = _goBack
         vm.test = _test;
         //vm.factoryTest = _factoryTest
+        var total = vm.$sessionStorage.formData.enum.reduce(function (sum, value) {
+            return sum + value;
+        }, 0);
 
         vm.resultHeader = "'result'";
         vm.timeBegin = vm.$sessionStorage.formData.timeBegin;
@@ -5108,6 +5130,7 @@ angular.module('app.amchartDirective.serial', []).directive('amchartSerial', fun
             //vm.factoryTest()
             vm.$sessionStorage.formData.xray = vm.array;
             vm.$sessionStorage.formData.timeEnd = datestring2;
+            vm.$sessionStorage.formData.enum = total;
             console.log($sessionStorage.formData);
             vm.$sessionStorage.totalData.push($sessionStorage.formData);
             console.log(vm.$sessionStorage.totalData);
@@ -5236,6 +5259,9 @@ angular.module('app.amchartDirective.serial', []).directive('amchartSerial', fun
             // vm.$state.go($sessionStorage.formData.backBtn)
             if (vm.$sessionStorage.formData.secretion != undefined) {
                 vm.$sessionStorage.formData.secretion = undefined;
+            } else {
+                vm.$sessionStorage.formData.enum.pop();
+                console.log(vm.$sessionStorage.formData.enum);
             }
             window.history.back();
         }
@@ -5245,9 +5271,10 @@ angular.module('app.amchartDirective.serial', []).directive('amchartSerial', fun
             vm.array.push(e);
             //factoryService.secretion(vm.array)
             vm.$sessionStorage.formData.secretion = vm.array;
-            $sessionStorage.formData.enum = x + $sessionStorage.formData.enum;
+            // vm.$sessionStorage.formData.enum = x + $sessionStorage.formData.enum
+            vm.$sessionStorage.formData.enum.push(x
             // vm.$sessionStorage.formData.backBtn = $state.$current.toString().substring(5)
-            vm.$state.go('wean.lungs');
+            );vm.$state.go('wean.lungs');
             console.log($sessionStorage.formData);
         }
     }
@@ -5270,21 +5297,24 @@ angular.module('app.amchartDirective.serial', []).directive('amchartSerial', fun
 
         angular.module('app.wean').controller('Wean', Wean);
 
-        Wean.$inject = ['$scope', '$sessionStorage', 'FormDataModel'];
+        Wean.$inject = ['$scope', '$state', '$sessionStorage', 'FormDataModel'];
 
-        function Wean($scope, $sessionStorage, FormDataModel) {
+        function Wean($scope, $state, $sessionStorage, FormDataModel) {
                 var vm = this;
 
-                if ($sessionStorage.totalData == undefined || $sessionStorage.totalData == null) {
-                        $sessionStorage.totalData = [];
-                        console.log('New session!! New session!! New session!! New session!! ' + $sessionStorage.totalData);
+                vm.$state = $state;
+                vm.$sessionStorage = $sessionStorage;
+
+                if (vm.$sessionStorage.totalData == undefined || vm.$sessionStorage.totalData == null) {
+                        vm.$sessionStorage.totalData = [];
+                        console.log('New session!! New session!! New session!! New session!! ' + vm.$sessionStorage.totalData);
                 } else {
-                        console.log('Continued session!! Continued session!! Continued session!! ' + $sessionStorage.totalData);
-                        console.log($sessionStorage.totalData);
+                        console.log('Continued session!! Continued session!! Continued session!! ' + vm.$sessionStorage.totalData);
+                        console.log(vm.$sessionStorage.totalData);
                 }
 
-                $sessionStorage.formData = new FormDataModel();
-                console.log($sessionStorage.formData);
+                vm.$sessionStorage.formData = new FormDataModel();
+                console.log(vm.$sessionStorage.formData);
 
                 vm.main = "Main 'wean' state";
 
@@ -5294,6 +5324,9 @@ angular.module('app.amchartDirective.serial', []).directive('amchartSerial', fun
 
                 function activate() {
                         console.log(vm.main + ' loaded!');
+                        if (vm.$sessionStorage.formData.enum == undefined) {
+                                return vm.$state.go('wean.landing');
+                        }
                 }
         }
 })();
@@ -5394,6 +5427,9 @@ angular.module('app.amchartDirective.serial', []).directive('amchartSerial', fun
             // vm.$state.go($sessionStorage.formData.backBtn)
             if (vm.$sessionStorage.formData.xray != undefined) {
                 vm.$sessionStorage.formData.xray = undefined;
+            } else {
+                vm.$sessionStorage.formData.enum.pop();
+                console.log(vm.$sessionStorage.formData.enum);
             }
             window.history.back();
         }
@@ -5403,9 +5439,10 @@ angular.module('app.amchartDirective.serial', []).directive('amchartSerial', fun
             vm.array.push(e);
             vm.$sessionStorage.formData.xray = vm.array;
             //factoryService.xray(vm.array)
-            $sessionStorage.formData.enum = x + $sessionStorage.formData.enum;
+            // vm.$sessionStorage.formData.enum = x + $sessionStorage.formData.enum
+            vm.$sessionStorage.formData.enum.push(x
             // vm.$sessionStorage.formData.backBtn = $state.$current.toString().substring(5)
-            vm.$state.go('wean.secretion');
+            );vm.$state.go('wean.secretion');
             console.log($sessionStorage.formData);
         }
     }

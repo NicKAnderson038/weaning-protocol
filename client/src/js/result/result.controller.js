@@ -15,6 +15,9 @@
         // vm.goBack = _goBack
         vm.test = _test
         //vm.factoryTest = _factoryTest
+        let total = vm.$sessionStorage.formData.enum.reduce(function (sum, value) {
+            return sum + value;
+        }, 0);
 
         vm.resultHeader = "'result'";
         vm.timeBegin = vm.$sessionStorage.formData.timeBegin
@@ -169,6 +172,7 @@
             //vm.factoryTest()
             vm.$sessionStorage.formData.xray = vm.array
             vm.$sessionStorage.formData.timeEnd = datestring2;
+            vm.$sessionStorage.formData.enum = total
             console.log($sessionStorage.formData)
             vm.$sessionStorage.totalData.push($sessionStorage.formData)
             console.log(vm.$sessionStorage.totalData)

@@ -59,6 +59,9 @@
             // vm.$state.go($sessionStorage.formData.backBtn)
             if(this.$sessionStorage.formData.cardiac != undefined){
                 this.$sessionStorage.formData.cardiac = undefined
+            }else{
+                vm.$sessionStorage.formData.enum.pop()
+                console.log(vm.$sessionStorage.formData.enum)
             }
             window.history.back()
         }
@@ -88,7 +91,8 @@
             let x = 2 * vm.array.length
             //factoryService.cardiac(vm.array)
             vm.$sessionStorage.formData.cardiac = vm.array
-            $sessionStorage.formData.enum = x + $sessionStorage.formData.enum
+            // vm.$sessionStorage.formData.enum = x + $sessionStorage.formData.enum
+            vm.$sessionStorage.formData.enum.push(x)
             // vm.$sessionStorage.formData.backBtn = $state.$current.toString().substring(5)
             $state.go('wean.neuro')
             console.log($sessionStorage.formData)

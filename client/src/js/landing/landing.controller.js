@@ -37,7 +37,7 @@
                 //vm.$sessionStorage.timeBegin = datestring;
                 //factoryService.timeBegin(vm.$sessionStorage.timeBegin)
               
-                vm.$sessionStorage.formData.enum = 1
+                vm.$sessionStorage.formData.enum = [0]
                 vm.$sessionStorage.formData.timeBegin = datestring
                 vm.$state.go('wean.contra')
                 

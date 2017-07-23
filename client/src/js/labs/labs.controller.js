@@ -56,6 +56,9 @@
             // vm.$state.go($sessionStorage.formData.backBtn)
             if(vm.$sessionStorage.formData.labs != undefined){
                 vm.$sessionStorage.formData.labs = undefined
+            }else{
+                vm.$sessionStorage.formData.enum.pop()
+                console.log(vm.$sessionStorage.formData.enum)
             }
             window.history.back()  
         }
@@ -81,7 +84,8 @@
             //factoryService.labs(vm.array)
             // vm.$sessionStorage.formData.backBtn = $state.$current.toString().substring(5)
             vm.$sessionStorage.formData.labs = vm.array
-            vm.$sessionStorage.formData.enum = x * $sessionStorage.formData.enum
+            // vm.$sessionStorage.formData.enum = x * $sessionStorage.formData.enum
+            vm.$sessionStorage.formData.enum.push(x)
             console.log($sessionStorage.formData)
             vm.$state.go('wean.cbc')
         }

@@ -53,6 +53,9 @@
             // vm.$state.go($sessionStorage.formData.backBtn)
             if(vm.$sessionStorage.formData.secretion != undefined){
                 vm.$sessionStorage.formData.secretion = undefined
+            }else{
+                vm.$sessionStorage.formData.enum.pop()
+                console.log(vm.$sessionStorage.formData.enum)
             }
             window.history.back()
         }
@@ -62,7 +65,8 @@
             vm.array.push(e);
             //factoryService.secretion(vm.array)
             vm.$sessionStorage.formData.secretion = vm.array
-            $sessionStorage.formData.enum = x + $sessionStorage.formData.enum
+            // vm.$sessionStorage.formData.enum = x + $sessionStorage.formData.enum
+            vm.$sessionStorage.formData.enum.push(x)
             // vm.$sessionStorage.formData.backBtn = $state.$current.toString().substring(5)
             vm.$state.go('wean.lungs')
             console.log($sessionStorage.formData)
