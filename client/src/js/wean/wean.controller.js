@@ -3,9 +3,9 @@
 
         angular.module('app.wean').controller('Wean', Wean);
 
-        Wean.$inject = ['$scope', '$state', '$sessionStorage', 'FormDataModel'];
+        Wean.$inject = ['$scope', '$state', '$sessionStorage', 'FormDataModel', 'WeanService'];
 
-        function Wean($scope, $state, $sessionStorage, FormDataModel) {
+        function Wean($scope, $state, $sessionStorage, FormDataModel, WeanService) {
                 var vm = this
 
                 vm.$state = $state
@@ -35,5 +35,19 @@
                         }
                 }
 
+                WeanService.array.query(function(data){
+                        console.log(data)
+                        console.log({ firstName : "Bob" })
+                })
+
+                WeanService.obj.query(function(data){
+                        console.log(data)
+                        console.log(data.firstName)
+                })
+
+                
+                
+
+                /* END */
         }
 })();

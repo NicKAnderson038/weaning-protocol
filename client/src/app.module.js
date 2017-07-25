@@ -3,6 +3,7 @@ import 'angular-ui-router'
 import 'ng-storage'
 import 'angular-toastr'
 import 'angular-animate'
+import 'angular-resource'
 // import 'bootstrap'
 // import jQuery from 'jquery'
 
@@ -16,6 +17,7 @@ import "./js/components/amchartDirective/amchart-serial.js"
 
 
 import './app.factory.js'
+import './app.services.js'
 import './js/wean/wean.module.js'
 import './js/wean/wean.controller.js'
 import './js/wean/wean.value.js'
@@ -65,14 +67,16 @@ import './js/result/result.controller.js'
         'app.lungs', 
         'app.cardiac', 
         'app.neuro', 
-        'app.result', 
+        'app.result',
+        'app.services',
         'app.factory',
         'app.amchartDirective.serial',
         'AngularAmChart', 
         'ui.router', 
         'ngStorage',
         'toastr',
-        'ngAnimate'])
+        'ngAnimate',
+        'ngResource'])
     .config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $urlRouterProvider) {
         $urlRouterProvider.when('', '/wean/landing');
         $urlRouterProvider.rule(function ($injector, $location) {

@@ -63,6 +63,10 @@ angular-animate@1.6.4:
   version "1.6.4"
   resolved "https://registry.yarnpkg.com/angular-animate/-/angular-animate-1.6.4.tgz#d3eb906d39834f2dfbdd982e6b8d7a3b4d9001d2"
 
+angular-resource@^1.6.5:
+  version "1.6.5"
+  resolved "https://registry.yarnpkg.com/angular-resource/-/angular-resource-1.6.5.tgz#d1e712ab01afa5d2ec649f5e471673a704f2be40"
+
 angular-toastr@^2.1.1:
   version "2.1.1"
   resolved "https://registry.yarnpkg.com/angular-toastr/-/angular-toastr-2.1.1.tgz#9f8350ca482145a44d011a755b8fb3623d60544c"
@@ -2313,6 +2317,14 @@ gulp-imagemin@^3.3.0:
     imagemin-optipng "^5.1.0"
     imagemin-svgo "^5.1.0"
 
+gulp-jsonminify@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/gulp-jsonminify/-/gulp-jsonminify-1.0.0.tgz#c42b68812c657e6e0a12e93c2aa217b3eb38c70a"
+  dependencies:
+    gulp-util "~3.0.4"
+    jsonminify "~0.2.3"
+    through2 "~0.6.5"
+
 gulp-match@^1.0.3:
   version "1.0.3"
   resolved "https://registry.yarnpkg.com/gulp-match/-/gulp-match-1.0.3.tgz#91c7c0d7f29becd6606d57d80a7f8776a87aba8e"
@@ -2362,7 +2374,7 @@ gulp-uglify@^3.0.0:
     uglify-js "^3.0.5"
     vinyl-sourcemaps-apply "^0.2.0"
 
-gulp-util@3.0.8, gulp-util@^3.0.0, gulp-util@^3.0.1, gulp-util@^3.0.7, gulp-util@~3.0.1:
+gulp-util@3.0.8, gulp-util@^3.0.0, gulp-util@^3.0.1, gulp-util@^3.0.7, gulp-util@~3.0.1, gulp-util@~3.0.4:
   version "3.0.8"
   resolved "https://registry.yarnpkg.com/gulp-util/-/gulp-util-3.0.8.tgz#0054e1e744502e27c04c187c3ecc505dd54bbb4f"
   dependencies:
@@ -2979,6 +2991,10 @@ jsonfile@^2.1.0:
 jsonify@~0.0.0:
   version "0.0.0"
   resolved "https://registry.yarnpkg.com/jsonify/-/jsonify-0.0.0.tgz#2c74b6ee41d93ca51b7b5aaee8f503631d252a73"
+
+jsonminify@~0.2.3:
+  version "0.2.3"
+  resolved "https://registry.yarnpkg.com/jsonminify/-/jsonminify-0.2.3.tgz#4b842c8a3fe5d6aa48b2f8f95a1cf9a80c019d8e"
 
 jsonparse@^1.2.0:
   version "1.3.1"
@@ -4809,7 +4825,7 @@ through2@2.0.3, through2@2.X, through2@^2.0.0, through2@^2.0.1, through2@^2.0.3,
     readable-stream "^2.1.5"
     xtend "~4.0.1"
 
-through2@^0.6.0, through2@^0.6.1:
+through2@^0.6.0, through2@^0.6.1, through2@~0.6.5:
   version "0.6.5"
   resolved "https://registry.yarnpkg.com/through2/-/through2-0.6.5.tgz#41ab9c67b29d57209071410e1d7a7a968cd3ad48"
   dependencies:

@@ -9,6 +9,7 @@ import sourcemaps from 'gulp-sourcemaps'
 import htmlmin from 'gulp-htmlmin'
 import imagemin from 'gulp-imagemin'
 import gulpIf from 'gulp-if'
+import jsonmini from 'gulp-jsonminify'
 
 let env = process.env.NODE_ENV || 'development'
 
@@ -19,7 +20,8 @@ const gulpTasks = [
   'minifyHTML',
   'minifyIcon',
   'fonts',
-  'lib'
+  'lib',
+  'data'
 ]
 
 const css = [
@@ -122,6 +124,19 @@ gulp.task('lib', ['transpile'], function () {
   return gulp.src(lib)
     .pipe(gulp.dest('dist/lib'))
 })
+
+/* DATA */
+gulp.task('data', function () {
+  return gulp.src([
+      'src/data/*json'
+    ])
+    .pipe(gulpIf(env === 'development', jsonmini()))
+    .pipe(gulpIf(env === 'development', gulp.dest('dist/data')))
+    // .pipe(jsonmini())
+    // .pipe(gulp.dest('dist/data'))
+})
+
+
 
 
 /* GULP WATCH LIST */

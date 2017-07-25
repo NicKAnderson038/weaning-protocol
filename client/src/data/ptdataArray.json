@@ -1,0 +1,25 @@
+[{
+    "firstName": "Bob",
+    "lastName": "Miller",
+    "age": 67,
+    "sex": "m",
+    "data": [{
+        "id": "HASH",
+        "enumTotal": 40,
+        "TimeBegin": "2017-06-01T12:30",
+        "TimeEnd": "2017-06-01T01:01",
+        "sourceOfInfection": "Unknown"
+    }],
+    "updateHistory" : [{
+        "id": "HASH",
+        "CurrentTime": null,
+        "oldData": null,
+        "newData": null,
+        "dataId": null
+    }],
+    "deleteHistory": [{
+        "id": "HASH",
+        "CurrentTime": null,
+        "dataObj": null
+    }]
+}]
