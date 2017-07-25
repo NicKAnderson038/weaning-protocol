@@ -8,10 +8,10 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "watch": "gulp watch --gulpfile client/gulpfile.babel.js",
-    "build": "gulp --gulpfile client/gulpfile.babel.js",
-    "dev": "gulp --gulpfile client/gulpfile.babel.js",
-    "prod": "cross-env NODE_ENV=production gulp --gulpfile client/gulpfile.babel.js",
     "clean": "rm -rf client/dist",
+    "build": "gulp --gulpfile client/gulpfile.babel.js",
+    "dev": "rm -rf client/dist && gulp --gulpfile client/gulpfile.babel.js",
+    "prod": "rm -rf client/dist && cross-env NODE_ENV=production gulp --gulpfile client/gulpfile.babel.js",
     "start": "node express_server/app.js"
   },
   "dependencies": {
