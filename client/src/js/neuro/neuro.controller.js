@@ -20,7 +20,7 @@
         vm.neuro = [{
             "id": 1,
             "enum": 3,
-            "label": "Regained level of conscious from narcotic medications?"
+            "label": "Altered level of conscious?"
         }, {
             "id": 2,
             "enum": 1,
@@ -28,7 +28,7 @@
         }, {
             "id": 3,
             "enum": 3,
-            "label": "Patient awake and alert."
+            "label": "Patient alert and following commands?"
         }];
 
         activate();

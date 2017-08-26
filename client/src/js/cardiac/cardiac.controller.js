@@ -21,18 +21,20 @@
             "id": 10,
             "enum": 3,
             "link": "/",
-            "label": "BP within normal limits without medication?"
+            "label": "BP within normal limits?"
         }, {
             "id": 10,
             "enum": 2,
             "link": "/",
-            "label": "BP low on LOW dosage of vassopressor?"
-        }, {
-            "id": 10,
-            "enum": 1,
-            "link": "/",
-            "label": "BP low on HIGH dosage of anti hypertensive medication?"
-        }, {
+            "label": "BP on LOW dosage of vassopressor?"
+        }, 
+        // {
+        //     "id": 10,
+        //     "enum": 1,
+        //     "link": "/",
+        //     "label": "BP on HIGH dosage of anti hypertensive medication?"
+        // }, 
+        {
             "id": 11,
             "enum": 3,
             "link": "/",
@@ -41,7 +43,7 @@
             "id": 12,
             "enum": 3,
             "link": "/",
-            "label": "MAP ok?"
+            "label": "MAP within normal limits?"
         }];
 
         activate();

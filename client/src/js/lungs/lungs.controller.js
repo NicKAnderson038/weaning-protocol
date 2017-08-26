@@ -33,26 +33,17 @@
             "button": false,
             "toggle": true
         }, 
-        // {
-        //     "id": 2,
-        //     "enum": 64,
-        //     "count": "",
-        //     "symbol": " mL",
-        //     "link": "wean.result",
-        //     "label": "Vt",
-        //     "button": true,
-        //     "toggle": true
-        // }, 
         {
             "id": 2,
-            "enum": 128,
+            "enum": 64,
             "count": "",
-            "symbol": " cmH2O",
+            "symbol": " mL",
             "link": "wean.result",
-            "label": "PIP",
+            "label": "Vt",
             "button": true,
             "toggle": true
-        }, {
+        },
+        {
             "id": 3,
             "enum": 128,
             "count": "",
@@ -61,8 +52,29 @@
             "label": "PEEP",
             "button": true,
             "toggle": true
-        }, {
+        }, 
+        {
             "id": 4,
+            "enum": 128,
+            "count": "",
+            "symbol": " cmH2O",
+            "link": "wean.result",
+            "label": "PIP",
+            "button": true,
+            "toggle": true
+        }, 
+        // {
+        //     "id": 4,
+        //     "enum": 128,
+        //     "count": "",
+        //     "symbol": " cmH2O",
+        //     "link": "wean.result",
+        //     "label": "PEEP",
+        //     "button": true,
+        //     "toggle": true
+        // }, 
+        {
+            "id": 5,
             "enum": 128,
             "count": "",
             "symbol": " cmH2O",
@@ -125,18 +137,16 @@
         } else if (x.id === 1 && x.count.charAt(0) === "2" && x.count.charAt(1) === "0") {
             this.toastr.error('FiO2 20%? \nOnly possible in a hypoberic Chamber.', 'Error')
             return
-        } 
-        // else if (x.id === 2 && (x.count.length > 3 || x.count.length < 3 || x.count.charAt(0) === "0" || x.count.charAt(0) === "1" || x.count.charAt(0) === "9")) {
-        //     toastr.error("Tidal Volume is incorrect. \nRe-enter Vt.");
-        //     return;
-        // } 
-          else if (x.id === 2 && (x.count.length > 2 || x.count.length < 2 || x.count.charAt(0) === "0" || x.count.charAt(0) === "7" || x.count.charAt(0) === "8" || x.count.charAt(0) === "9")) {
-            this.toastr.error("PIP is incorrect. \nRe-enter PIP.", 'Error');
+        } else if (x.id === 2 && (x.count.length > 3 || x.count.length < 3 || x.count.charAt(0) === "0" || x.count.charAt(0) === "1" || x.count.charAt(0) === "9")) {
+            toastr.error("Tidal Volume is incorrect. \nRe-enter Vt.");
             return;
         } else if (x.id === 3 && (x.count.length > 2 || x.count.length < 1 || x.count.charAt(1) === "3" || x.count.charAt(1) === "4" || x.count.charAt(1) === "5" || x.count.charAt(1) === "6" || x.count.charAt(1) === "7" || x.count.charAt(1) === "8" || x.count.charAt(1) === "9")) {
             this.toastr.error("PEEP is incorrect. \nRe-enter PEEP.", 'Error');
             return;
-        } else if (x.id === 4 && (x.count.length > 2 || x.count.length < 1 || x.count.charAt(0) === "0")) {
+        } else if (x.id === 4 && (x.count.length > 2 || x.count.length < 2 || x.count.charAt(0) === "0" || x.count.charAt(0) === "7" || x.count.charAt(0) === "8" || x.count.charAt(0) === "9")) {
+            this.toastr.error("PIP is incorrect. \nRe-enter PIP.", 'Error');
+            return;
+        } else if (x.id === 5 && (x.count.length > 2 || x.count.length < 1 || x.count.charAt(0) === "0")) {
             this.toastr.error("Platue Pressure is incorrect. \nRe-enter Platue.", 'Error');
             return;
         } else {
@@ -150,11 +160,9 @@
                 this.lungs[2].button = this.lungs[2].button === true ? false : false;
             } else if (x.id === 3) {
                 this.lungs[3].button = this.lungs[3].button === true ? false : false;
-            } 
-            // else if (x.id === 4) {
-            //     this.lungs[4].button = this.lungs[4].button === true ? false : false;
-            // } 
-            else {
+            } else if (x.id === 4) {
+                this.lungs[4].button = this.lungs[4].button === true ? false : false;
+            } else {
                 this.disabled = false;
             }
         }

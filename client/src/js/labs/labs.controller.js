@@ -21,21 +21,25 @@
         vm.array = [];
         vm.labs = [{
                 "id": 6,
+                "value": 1,
                 "selected": false,
                 "label": "BUN 7 - 20?"
             },
             {
                 "id": 7,
+                "value": 1,
                 "selected": false,
                 "label": "Creatinine 0.6 - 1.4?"
             },
             {
                 "id": 8,
+                "value": 1,
                 "selected": false,
                 "label": "BNP < 100?"
             },
             {
                 "id": 9,
+                "value": 1,
                 "selected": false,
                 "label": "GFR > 60?"
             }

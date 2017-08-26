@@ -18,26 +18,31 @@
         vm.cbcHeader = 'White blood cell count'
         vm.cbc = [{
             "id": 19,
+            "value": 1,
             "enum": 0,
             "link": "wean.infection",
             "label": "WBC <= 4"
         }, {
             "id": 20,
+            "value": 5,
             "enum": 4,
             "link": "wean.infection",
             "label": "WBC 5 - 10"
         }, {
             "id": 21,
+            "value": 3,
             "enum": 3,
             "link": "wean.infection",
             "label": "WBC 11 - 14"
         }, {
             "id": 19,
+            "value": 1,
             "enum": 0,
             "link": "wean.infection",
             "label": "WBC >= 15"
         }, {
             "id": 21,
+            "value": 0,
             "enum": 0,
             "link": "wean.infection",
             "label": "WBC result pending"
