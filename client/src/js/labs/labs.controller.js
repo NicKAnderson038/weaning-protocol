@@ -21,25 +21,21 @@
         vm.array = [];
         vm.labs = [{
                 "id": 6,
-                "value": 1,
                 "selected": false,
                 "label": "BUN 7 - 20?"
             },
             {
                 "id": 7,
-                "value": 1,
                 "selected": false,
                 "label": "Creatinine 0.6 - 1.4?"
             },
             {
                 "id": 8,
-                "value": 1,
                 "selected": false,
                 "label": "BNP < 100?"
             },
             {
                 "id": 9,
-                "value": 1,
                 "selected": false,
                 "label": "GFR > 60?"
             }
@@ -84,10 +80,12 @@
         }
 
         function _selected() {
-            let x = vm.array.length
+            let x = vm.array.length,
+                y = 4;
             //factoryService.labs(vm.array)
             // vm.$sessionStorage.formData.backBtn = $state.$current.toString().substring(5)
             vm.$sessionStorage.formData.labs = vm.array
+            vm.$sessionStorage.formData.labsValue = (x * 2) + (y - x)
             // vm.$sessionStorage.formData.enum = x * $sessionStorage.formData.enum
             vm.$sessionStorage.formData.enum.push(x)
             console.log($sessionStorage.formData)

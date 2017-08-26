@@ -16,6 +16,14 @@
         this.neuro
         this.timeEnd
         this.enum = undefined
+        this.labsValue = 0
+        this.cbcValue = 0
+        this.infectionValue = 0
+        this.xrayValue = 0
+        this.secretionValue = 0
+        this.lungsValue = 0
+        this.cardiacValue = 0
+        this.neuroValue = 0
     }
 
 

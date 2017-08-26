@@ -18,26 +18,31 @@
         vm.chestXrayHeader = "Chest X-ray"
         vm.chestXrayRecent = [{
             "id": 6,
+            "value": 1,
             "enum": 1,
             "link": "wean.secretion",
             "label": "Any chest abnormalities present? (eg. Pulmonary Vascular Congestion? (aka - Pulmonary Edema), pneumothorax, significant pleural effusion, lung tumor.)"
         }, {
             "id": 4,
+            "value": 0,
             "enum": 0,
             "link": "wean.secretion",
             "label": "Bilateral diffused pulmonary infiltrate?"
         }, {
             "id": 6,
+            "value": 2,
             "enum": 2,
             "link": "wean.secretion",
             "label": "Lobular infiltrate?"
         }, {
             "id": 7,
+            "value": 5,
             "enum": 4,
             "link": "wean.secretion",
             "label": "Clear chest X-ray?"
         }, {
             "id": 7,
+            "value": 0,
             "enum": 0,
             "link": "wean.secretion",
             "label": "No current Xray with in past 24 hours"
@@ -66,9 +71,11 @@
         }
 
         function _enumCalc(e) {
-            let x = e.enum
+            let x = e.enum,
+                y = e.value;
             vm.array.push(e)
             vm.$sessionStorage.formData.xray = vm.array
+            vm.$sessionStorage.formData.xrayValue = y
             //factoryService.xray(vm.array)
             // vm.$sessionStorage.formData.enum = x + $sessionStorage.formData.enum
             vm.$sessionStorage.formData.enum.push(x)

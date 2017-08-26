@@ -3,7 +3,7 @@
 
     angular.module('app.infection').controller('Infection', Infection);
 
-    Infection.$inject = ['$state', '$sessionStorage','factoryService'];
+    Infection.$inject = ['$state', '$sessionStorage', 'factoryService'];
 
     function Infection($state, $sessionStorage, factoryService) {
         var vm = this;
@@ -50,14 +50,14 @@
 
         function activate() {
             console.log('sub-state ' + vm.sourceHeader + ' loaded!')
-             if (vm.$sessionStorage.formData.enum == undefined) {
+            if (vm.$sessionStorage.formData.enum == undefined) {
                 return vm.$state.go('wean.landing')
             }
         }
 
         function _goBack() {
             // vm.$state.go($sessionStorage.formData.backBtn)
-            if(vm.$sessionStorage.formData.infection != undefined){
+            if (vm.$sessionStorage.formData.infection != undefined) {
                 vm.$sessionStorage.formData.infection = undefined
             }
             window.history.back()
@@ -77,7 +77,7 @@
                 for (var i = vm.array.length - 1; i >= 0; i--) {
                     if (vm.array[i] === x) {
                         vm.array.splice(i, 1)
-                        break   
+                        break
                     }
                 }
                 console.log(vm.array)
@@ -85,6 +85,16 @@
         }
 
         function _selected() {
+            if (vm.array.length == 1) {
+                vm.$sessionStorage.formData.infectionValue = 1
+            }
+            for (let i = 0; i < vm.array.length; i++) {
+                if (vm.array[i] == 'Unknown or result pending') {
+                    vm.$sessionStorage.formData.infectionValue = 0
+                }
+            }
+
+
             //factoryService.infection(vm.array)
             vm.$sessionStorage.formData.infection = vm.array
             // vm.$sessionStorage.formData.backBtn = $state.$current.toString().substring(5)

@@ -71,9 +71,11 @@
         }
 
         function _enumCalc(e) {
-            let x = e.enum
+            let x = e.enum,
+                y = e.value;
             vm.array.push(e);
             vm.$sessionStorage.formData.cbc = vm.array
+            vm.$sessionStorage.formData.cbcValue = y
             // $sessionStorage.formData.enum = x + $sessionStorage.formData.enum
             
             //factoryService.cbc(vm.array)

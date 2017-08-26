@@ -19,11 +19,13 @@
         vm.cardiacHeader = "Cardiac"
         vm.cardiac = [{
             "id": 10,
+            "value": 2,
             "enum": 3,
             "link": "/",
             "label": "BP within normal limits?"
         }, {
             "id": 10,
+            "value": -1,
             "enum": 2,
             "link": "/",
             "label": "BP on LOW dosage of vassopressor?"
@@ -36,11 +38,13 @@
         // }, 
         {
             "id": 11,
+            "value": 2,
             "enum": 3,
             "link": "/",
             "label": "Asymptomatic or NO arrythemias present?"
         }, {
             "id": 12,
+            "value": 2,
             "enum": 3,
             "link": "/",
             "label": "MAP within normal limits?"
@@ -90,6 +94,18 @@
         }
 
         function _selected() {
+            for(let i = 0; i < vm.array.length; i++){
+                let x = vm.array[i]
+                for(let j = 0; j , j < vm.cardiac.length; j++){
+                    if(x == vm.cardiac[j]){
+                        vm.$sessionStorage.formData.cardiacValue = vm.$sessionStorage.formData.cardiacValue + vm.cardiac[j].value
+                    }
+                }
+
+            }
+
+
+
             let x = 2 * vm.array.length
             //factoryService.cardiac(vm.array)
             vm.$sessionStorage.formData.cardiac = vm.array

@@ -19,14 +19,17 @@
         vm.neuroHeader = "Neuro";
         vm.neuro = [{
             "id": 1,
+            "value": -4,
             "enum": 3,
             "label": "Altered level of conscious?"
         }, {
             "id": 2,
+            "value": 0,
             "enum": 1,
             "label": "Seizure activity present?"
         }, {
             "id": 3,
+            "value": 5,
             "enum": 3,
             "label": "Patient alert and following commands?"
         }];
@@ -70,6 +73,18 @@
         }
 
         function _selected() {
+
+            for(let i = 0; i < vm.array.length; i++){
+                let x = vm.array[i]
+                for(let j = 0; j , j < vm.neuro.length; j++){
+                    if(x == vm.neuro[j]){
+                        vm.$sessionStorage.formData.neuroValue = vm.$sessionStorage.formData.neuroValue + vm.neuro[j].value
+                    }
+                }
+
+            }
+
+
             let x = 2 * vm.array.length
             //factoryService.neuro(vm.array)
             vm.$sessionStorage.formData.neuro = vm.array
