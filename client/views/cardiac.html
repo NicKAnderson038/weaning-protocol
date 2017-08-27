@@ -8,6 +8,20 @@
                         <table>
                             <tr class="form-group" ng-repeat="choice in vm.cardiac">
                                 <th><label>{{choice.label}}</label></th>
+                                <th class="onoff">
+                                    <input type="checkbox"
+                                        id="checkboxID{{choice.id}}"
+                                        required="required"
+                                        value="{{choice.id}}"
+                                        ng-model="choice.selected"
+                                        name="group-one"
+                                        ng-click="vm.enumCalc(choice.label)"/><label for="checkboxID{{choice.id}}"></label>
+                                </th>
+                            </tr>
+                        </table>
+                        <!-- <table>
+                            <tr class="form-group" ng-repeat="choice in vm.cardiac">
+                                <th><label>{{choice.label}}</label></th>
                                 <th>
                                     <input type="checkbox"
                                            required="required"
@@ -18,7 +32,7 @@
                                            ng-click="vm.enumCalc(choice.label)" />
                                 </th>
                             </tr>
-                        </table>
+                        </table> -->
                         <button ng-click="vm.selected()" type="button" class="btn btn-primary">Continue</button>
                         <button type="button" ng-click="vm.goBack()" class="btn btn-theme">Back</button>
                     </form>

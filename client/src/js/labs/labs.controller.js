@@ -20,22 +20,22 @@
         vm.labsHeader = 'Labs';
         vm.array = [];
         vm.labs = [{
-                "id": 6,
+                "id": 1,
                 "selected": false,
                 "label": "BUN 7 - 20?"
             },
             {
-                "id": 7,
+                "id": 2,
                 "selected": false,
                 "label": "Creatinine 0.6 - 1.4?"
             },
             {
-                "id": 8,
+                "id": 3,
                 "selected": false,
                 "label": "BNP < 100?"
             },
             {
-                "id": 9,
+                "id": 4,
                 "selected": false,
                 "label": "GFR > 60?"
             }

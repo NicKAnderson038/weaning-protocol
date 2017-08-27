@@ -27,6 +27,7 @@ const gulpTasks = [
 const css = [
   "src/css/angular-toastr.css",
   "src/css/bootstrap.css",
+  "src/css/checkbox.css",
   "src/css/font-awesome.min.css",
   "src/css/hoverex-all.css",
   "src/css/prettyPhoto.css",

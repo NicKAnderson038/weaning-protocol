@@ -18,27 +18,27 @@
         vm.sourceHeader = "Source of Infection"
         vm.array = []
         vm.infection = [{
-            "id": 14,
+            "id": 1,
             "enum": 2097152,
             "label": "Blood infection?",
             "selected": false
         }, {
-            "id": 15,
+            "id": 2,
             "enum": null,
             "label": "Respiratory infection?",
             "selected": false
         }, {
-            "id": 16,
+            "id": 3,
             "enum": null,
             "label": "Urine infection?",
             "selected": false
         }, {
-            "id": 17,
+            "id": 4,
             "enum": null,
             "label": "Other?",
             "selected": false
         }, {
-            "id": 18,
+            "id": 5,
             "enum": null,
             "label": "Unknown or result pending?",
             "selected": false

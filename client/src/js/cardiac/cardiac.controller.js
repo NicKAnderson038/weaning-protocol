@@ -18,13 +18,13 @@
         vm.array = []
         vm.cardiacHeader = "Cardiac"
         vm.cardiac = [{
-            "id": 10,
+            "id": 1,
             "value": 2,
             "enum": 3,
             "link": "/",
             "label": "BP within normal limits?"
         }, {
-            "id": 10,
+            "id": 2,
             "value": -1,
             "enum": 2,
             "link": "/",
@@ -37,13 +37,13 @@
         //     "label": "BP on HIGH dosage of anti hypertensive medication?"
         // }, 
         {
-            "id": 11,
+            "id": 3,
             "value": 2,
             "enum": 3,
             "link": "/",
             "label": "Asymptomatic or NO arrythemias present?"
         }, {
-            "id": 12,
+            "id": 4,
             "value": 2,
             "enum": 3,
             "link": "/",
