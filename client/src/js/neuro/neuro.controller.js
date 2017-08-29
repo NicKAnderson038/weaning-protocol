@@ -37,8 +37,7 @@
             "value": false,
             "enum": 3,
             "label": "Neuromuscular Condition Present?"
-        }];
-
+        }]
         vm.neuromuscular = [{
             "id": 3,
             "value": 1,
