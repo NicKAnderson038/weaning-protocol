@@ -32,7 +32,29 @@
             "value": 5,
             "enum": 3,
             "label": "Patient alert and following commands?"
+        }, {
+            "id": 3,
+            "value": false,
+            "enum": 3,
+            "label": "Neuromuscular Condition Present?"
         }];
+
+        vm.neuromuscular = [{
+            "id": 3,
+            "value": 1,
+            "enum": 3,
+            "label": "Vital Capacity with in Normal Limits?"
+        },{
+            "id": 3,
+            "value": 1,
+            "enum": 3,
+            "label": "NIF Within Normal Limits?"
+        },{
+            "id": 3,
+            "value": -2,
+            "enum": 3,
+            "label": "Spirometry NOT performed?"
+        }]
 
         activate();
 

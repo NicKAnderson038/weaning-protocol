@@ -22,13 +22,13 @@
             "value": 2,
             "enum": 3,
             "link": "/",
-            "label": "BP within normal limits?"
+            "label": "Normal BP without Vasopressor?"
         }, {
             "id": 2,
             "value": -1,
             "enum": 2,
             "link": "/",
-            "label": "BP on LOW dosage of vassopressor?"
+            "label": "Normotensive or stable BP on LOW dosage of Vasopressor?"
         }, 
         // {
         //     "id": 10,
@@ -38,16 +38,16 @@
         // }, 
         {
             "id": 3,
-            "value": 2,
+            "value": 1,
             "enum": 3,
             "link": "/",
-            "label": "Asymptomatic or NO arrythemias present?"
+            "label": "Normal Sinus Rhythm?"
         }, {
             "id": 4,
-            "value": 2,
+            "value": -4,
             "enum": 3,
             "link": "/",
-            "label": "MAP within normal limits?"
+            "label": "Symptomatic Pulmonary Hypertension?"
         }];
 
         activate();
