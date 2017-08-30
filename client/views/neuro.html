@@ -15,9 +15,20 @@
                                            value="{{choice.id}}"
                                            ng-model="choice.selected"
                                            name="group-one"
-                                           ng-click="vm.enumCalc(choice.label)"/><label for="checkboxID{{choice.id}}"></label>
+                                           ng-click="vm.enumCalc(choice)"/><label for="checkboxID{{choice.id}}"></label>
                                 </th>
-                                <!-- <th id="choice" ng-if="choice.value"></th> -->
+                            </tr>
+                            <tr ng-if="vm.toggler" class="form-group" ng-repeat="choiceM in vm.neuromuscular">
+                                <th><label>{{choiceM.label}}</label></th>
+                                <th class="onoff">
+                                        <input type="checkbox"
+                                        id="checkboxID{{choiceM.id}}"
+                                        required="required"
+                                        value="{{choiceM.id}}"
+                                        ng-model="choiceM.selected"
+                                        name="group-one"
+                                        ng-click="vm.enumCalc(choiceM)"/><label for="checkboxID{{choiceM.id}}"></label>
+                                </th>
                             </tr>
                         </table>
                         <!-- <table>

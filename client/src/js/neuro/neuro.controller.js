@@ -15,6 +15,7 @@
         vm.enumCalc = _enumCalc
         vm.selected = _selected
 
+        vm.toggler = false
         vm.array = [];
         vm.neuroHeader = "Neuro";
         vm.neuro = [{
@@ -33,18 +34,18 @@
             "enum": 3,
             "label": "Patient alert and following commands?"
         }, {
-            "id": 3,
+            "id": 4,
             "value": false,
             "enum": 3,
             "label": "Neuromuscular Condition Present?"
         }]
         vm.neuromuscular = [{
-            "id": 3,
+            "id": 1,
             "value": 1,
             "enum": 3,
             "label": "Vital Capacity with in Normal Limits?"
         },{
-            "id": 3,
+            "id": 2,
             "value": 1,
             "enum": 3,
             "label": "NIF Within Normal Limits?"
@@ -78,7 +79,17 @@
         }
 
         function _enumCalc(e) {
-            let x = e.slice(0, -1)
+            if(e.value == true){
+                vm.toggler = false
+                vm.neuro[4].value = true
+            } else if(e.value == false){
+                vm.toggler = true
+                vm.neuro[4].value = false
+            }
+
+
+
+            let x = e.label.slice(0, -1)
             if (vm.array.indexOf(x) == -1) {
                 vm.array.push(x)
                 console.log(vm.array)
