@@ -109,7 +109,7 @@
             for(let i = 0; i < vm.array.length; i++){
                 let x = vm.array[i]
                 for(let j = 0; j , j < vm.neuro.length; j++){
-                    if(x == vm.neuro[j]){
+                    if(x == vm.neuro[j].label.slice(0, -1)){
                         vm.$sessionStorage.formData.neuroValue = vm.$sessionStorage.formData.neuroValue + vm.neuro[j].value
                     }
                 }

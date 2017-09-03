@@ -94,11 +94,12 @@
         }
 
         function _selected() {
+            
             for(let i = 0; i < vm.array.length; i++){
-                let x = vm.array[i]
+                let x = vm.array[i]      
                 for(let j = 0; j , j < vm.cardiac.length; j++){
-                    if(x == vm.cardiac[j]){
-                        vm.$sessionStorage.formData.cardiacValue = vm.$sessionStorage.formData.cardiacValue + vm.cardiac[j].value
+                    if(x == vm.cardiac[j].label.slice(0, -1)){
+                    vm.$sessionStorage.formData.cardiacValue = vm.$sessionStorage.formData.cardiacValue + vm.cardiac[j].value
                     }
                 }
 
