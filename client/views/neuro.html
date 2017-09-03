@@ -13,23 +13,24 @@
                                            id="checkboxID{{choice.id}}"
                                            required="required"
                                            value="{{choice.id}}"
+                                           ng-disabled="vm.toggler"
                                            ng-model="choice.selected"
                                            name="group-one"
                                            ng-click="vm.enumCalc(choice)"/><label for="checkboxID{{choice.id}}"></label>
                                 </th>
                             </tr>
-                            <tr ng-if="vm.toggler" class="form-group" ng-repeat="choiceM in vm.neuromuscular">
+                            <!-- <tr ng-if="vm.toggler" class="form-group" ng-repeat="choiceM in vm.neuromuscular">
                                 <th><label>{{choiceM.label}}</label></th>
                                 <th class="onoff">
                                         <input type="checkbox"
                                         id="checkboxID{{choiceM.id}}"
                                         required="required"
                                         value="{{choiceM.id}}"
-                                        ng-model="choiceM.selected"
+                                        ng-model="choiceM.selected2"
                                         name="group-one"
-                                        ng-click="vm.enumCalc(choiceM)"/><label for="checkboxID{{choiceM.id}}"></label>
+                                        ng-click="vm.enumCalc2(choiceM)"/><label for="checkboxID{{choiceM.id}}"></label>
                                 </th>
-                            </tr>
+                            </tr> -->
                         </table>
                         <!-- <table>
                             <tr class="form-group" ng-repeat="choice in vm.neuro">

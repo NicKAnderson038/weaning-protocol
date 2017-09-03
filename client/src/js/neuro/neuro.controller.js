@@ -13,7 +13,9 @@
 
         vm.goBack = _goBack
         vm.enumCalc = _enumCalc
+        // vm.enumCalc2 = _enumCalc2
         vm.selected = _selected
+        // vm.selected2 = _selected2
 
         vm.toggler = false
         vm.array = [];
@@ -33,28 +35,45 @@
             "value": 5,
             "enum": 3,
             "label": "Patient alert and following commands?"
-        }, {
+        }, 
+        // {
+        //     "id": 4,
+        //     "value": false,
+        //     "enum": 3,
+        //     "label": "Neuromuscular Condition Present?"
+        // }, 
+        {
             "id": 4,
-            "value": false,
-            "enum": 3,
-            "label": "Neuromuscular Condition Present?"
-        }]
-        vm.neuromuscular = [{
-            "id": 1,
             "value": 1,
             "enum": 3,
             "label": "Vital Capacity with in Normal Limits?"
-        },{
-            "id": 2,
+        }, {
+            "id": 5,
             "value": 1,
             "enum": 3,
             "label": "NIF Within Normal Limits?"
-        },{
-            "id": 3,
+        }, {
+            "id": 6,
             "value": -2,
             "enum": 3,
             "label": "Spirometry NOT performed?"
         }]
+        // vm.neuromuscular = [{
+        //     "id": 4,
+        //     "value": 1,
+        //     "enum": 3,
+        //     "label": "Vital Capacity with in Normal Limits?"
+        // }, {
+        //     "id": 4,
+        //     "value": 1,
+        //     "enum": 3,
+        //     "label": "NIF Within Normal Limits?"
+        // }, {
+        //     "id": 4,
+        //     "value": -2,
+        //     "enum": 3,
+        //     "label": "Spirometry NOT performed?"
+        // }]
 
         activate();
 
@@ -62,6 +81,9 @@
 
         function activate() {
             console.log('sub-state ' + vm.neuroHeader + ' loaded!')
+            if(vm.$sessionStorage.formData.neuroValue != 0){
+                vm.$sessionStorage.formData.neuroValue = 0
+            }
             if (vm.$sessionStorage.formData.enum == undefined) {
                 return vm.$state.go('wean.landing')
             }
@@ -69,9 +91,9 @@
 
         function _goBack() {
             // vm.$state.go($sessionStorage.formData.backBtn)
-            if(this.$sessionStorage.formData.neuro != undefined){
+            if (this.$sessionStorage.formData.neuro != undefined) {
                 this.$sessionStorage.formData.neuro = undefined
-            }else{
+            } else {
                 vm.$sessionStorage.formData.enum.pop()
                 console.log(vm.$sessionStorage.formData.enum)
             }
@@ -79,15 +101,26 @@
         }
 
         function _enumCalc(e) {
-            if(e.value == true){
-                vm.toggler = false
-                vm.neuro[4].value = true
-            } else if(e.value == false){
-                vm.toggler = true
-                vm.neuro[4].value = false
+            console.log('~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~')
+            console.log(e)
+            console.log(vm.array)
+            // if (e.value == true) {
+            //     vm.toggler = false
+            //     vm.neuro[3].value = false
+            // } else if (e.value == false) {
+            //     vm.toggler = true
+            //     vm.neuro[3].value = true
+            // }
+            if(e.id == 6){
+                let i = vm.array.length;
+                while (i--) {
+                    if (vm.array[i] == 'Vital Capacity with in Normal Limits' || vm.array[i] == 'NIF Within Normal Limits') {
+                        vm.array.splice(i, 1);
+                    }
+                }
+                vm.neuro[3].selected = false
+                vm.neuro[4].selected = false
             }
-
-
 
             let x = e.label.slice(0, -1)
             if (vm.array.indexOf(x) == -1) {
@@ -106,10 +139,10 @@
 
         function _selected() {
 
-            for(let i = 0; i < vm.array.length; i++){
+            for (let i = 0; i < vm.array.length; i++) {
                 let x = vm.array[i]
-                for(let j = 0; j , j < vm.neuro.length; j++){
-                    if(x == vm.neuro[j].label.slice(0, -1)){
+                for (let j = 0; j, j < vm.neuro.length; j++) {
+                    if (x == vm.neuro[j].label.slice(0, -1)) {
                         vm.$sessionStorage.formData.neuroValue = vm.$sessionStorage.formData.neuroValue + vm.neuro[j].value
                     }
                 }
@@ -126,6 +159,7 @@
             $state.go('wean.result')
             console.log($sessionStorage.formData)
         }
+
 
     }
 })();

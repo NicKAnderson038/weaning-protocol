@@ -30,6 +30,14 @@
             <h4>Weaning Protocol Time Sheet</h4>
             <div class="hline"></div>
             <p>
+                <b>Dynamic Compliance:</b> {{vm.$sessionStorage.formData.dynamicCompliance | number:0}}<br />
+            </p>
+            <p>
+                <b>Static Compliance:</b> {{vm.$sessionStorage.formData.staticCompliance | number:0}}<br />
+            </p>
+            <br>
+            <div class="hline"></div>
+            <p>
                 <b>Started Q-round:</b> {{vm.timeBegin}}<br />
             </p>
             <p>

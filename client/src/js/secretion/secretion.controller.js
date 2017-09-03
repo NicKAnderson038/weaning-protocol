@@ -48,6 +48,9 @@
 
         function activate() {
             console.log('sub-state ' + vm.secretionHeader + ' loaded!')
+            if(vm.$sessionStorage.formData.secretionValue != 0){
+                vm.$sessionStorage.formData.secretionValue = 0
+            }
             if (vm.$sessionStorage.formData.enum == undefined) {
                 return vm.$state.go('wean.landing')
             }

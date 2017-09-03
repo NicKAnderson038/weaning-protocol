@@ -16,6 +16,8 @@
         this.neuro
         this.timeEnd
         this.enum = undefined
+        this.dynamicCompliance = 0
+        this.staticCompliance = 0
         this.labsValue = 0
         this.cbcValue = 0
         this.infectionValue = 0

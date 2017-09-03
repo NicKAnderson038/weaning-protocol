@@ -56,6 +56,9 @@
 
         function activate() {
             console.log('sub-state ' + vm.cardiacHeader + ' loaded!')
+            if(vm.$sessionStorage.formData.cardiacValue != 0){
+                vm.$sessionStorage.formData.cardiacValue = 0
+            }
             if (vm.$sessionStorage.formData.enum == undefined) {
                 return vm.$state.go('wean.landing')
             }

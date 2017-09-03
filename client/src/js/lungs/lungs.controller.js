@@ -109,6 +109,10 @@
         // this.$sessionStorage.lungs = this.array
         this.$sessionStorage.formData.lungs = this.array
         // this.$sessionStorage.formData.backBtn = this.$state.$current.toString().substring(5)
+
+        this.$sessionStorage.formData.dynamicCompliance = this.array[1].count / (this.array[3].count - this.array[2].count)
+        this.$sessionStorage.formData.staticCompliance = this.array[1].count / (this.array[4].count - this.array[2].count)
+
         this.$state.go('wean.cardiac')
     }
 
@@ -124,11 +128,11 @@
             //     factoryService.lungs(this.array)
             // }
         }
-        console.log(x.toggle)
-        console.log("meow")
+        // console.log(x.toggle)
         if (x.toggle) {
-            console.log("open")
-            console.log(x.count)
+            // console.log("open")
+            // console.log(this.lungs)
+            // console.log(x.count)
             this.disabled2 = false
             x.toggle = false
         } else if ((x.id === 1 && x.count.toString() != '100') && (x.count.length > 2 || x.count.length < 2 || x.count.charAt(0) === "0" || x.count.charAt(0) === "1")) {
@@ -149,9 +153,12 @@
         } else if (x.id === 5 && (x.count.length > 2 || x.count.length < 1 || x.count.charAt(0) === "0")) {
             this.toastr.error("Platue Pressure is incorrect. \nRe-enter Platue.", 'Error');
             return;
-        } else {
-            console.log("close");
-            console.log(x.count);
+        } else if (x.id === 5 && (this.lungs[3].count < x.count)) {
+            this.toastr.error("Platue cannot be greater than PIP. \nRe-enter Platue.", 'Error');
+            return;
+        }else {
+            // console.log("close");
+            // console.log(x.count);
             this.disabled2 = true;
             x.toggle = true;
             if (x.id === 1) {

@@ -54,6 +54,9 @@
 
         function activate() {
             console.log('sub-state ' + vm.cbcHeader + ' loaded!')
+            if(vm.$sessionStorage.formData.cbcValue != 0){
+                vm.$sessionStorage.formData.cbcValue = 0
+            }
              if (vm.$sessionStorage.formData.enum == undefined) {
                 return vm.$state.go('wean.landing')
             }
