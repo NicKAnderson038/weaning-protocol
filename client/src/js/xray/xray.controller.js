@@ -55,6 +55,7 @@
         function activate() {
             console.log('sub-state ' + vm.chestXrayHeader + ' loaded!')
             if(vm.$sessionStorage.formData.xrayValue != 0){
+                vm.$sessionStorage.formData.totalValue = vm.$sessionStorage.formData.totalValue - vm.$sessionStorage.formData.xrayValue
                 vm.$sessionStorage.formData.xrayValue = 0
             }
             if (vm.$sessionStorage.formData.enum == undefined) {
@@ -79,12 +80,9 @@
             vm.array.push(e)
             vm.$sessionStorage.formData.xray = vm.array
             vm.$sessionStorage.formData.xrayValue = y
-            //factoryService.xray(vm.array)
-            // vm.$sessionStorage.formData.enum = x + $sessionStorage.formData.enum
             vm.$sessionStorage.formData.enum.push(x)
-            // vm.$sessionStorage.formData.backBtn = $state.$current.toString().substring(5)
+            vm.$sessionStorage.formData.totalValue = vm.$sessionStorage.formData.totalValue + vm.$sessionStorage.formData.xrayValue
             vm.$state.go('wean.secretion')
-            console.log($sessionStorage.formData)
         }
         
     }

@@ -55,6 +55,7 @@
         function activate() {
             console.log('sub-state ' + vm.cbcHeader + ' loaded!')
             if(vm.$sessionStorage.formData.cbcValue != 0){
+                vm.$sessionStorage.formData.totalValue = vm.$sessionStorage.formData.totalValue - vm.$sessionStorage.formData.cbcValue
                 vm.$sessionStorage.formData.cbcValue = 0
             }
              if (vm.$sessionStorage.formData.enum == undefined) {
@@ -87,12 +88,14 @@
                 //vm.$sessionStorage.formData.infection = ['Cbc with in normal limits']
                 let circle = x + 3
                 vm.$sessionStorage.formData.enum.push(circle)
+                vm.$sessionStorage.formData.totalValue = vm.$sessionStorage.formData.totalValue + vm.$sessionStorage.formData.cbcValue
                 vm.$state.go('wean.xray')
             }else{
                 vm.$sessionStorage.formData.enum.push(x)
+                vm.$sessionStorage.formData.totalValue = vm.$sessionStorage.formData.totalValue + vm.$sessionStorage.formData.cbcValue
                 vm.$state.go('wean.infection')
             }
-            console.log($sessionStorage.formData)
+            
         }
     }
 })();

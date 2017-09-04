@@ -51,6 +51,7 @@
         function activate() {
             console.log('sub-state ' + vm.sourceHeader + ' loaded!')
             if(vm.$sessionStorage.formData.infectionValue != 0){
+                vm.$sessionStorage.formData.totalValue = vm.$sessionStorage.formData.totalValue - vm.$sessionStorage.formData.infectionValue
                 vm.$sessionStorage.formData.infectionValue = 0
             }
             if (vm.$sessionStorage.formData.enum == undefined) {
@@ -97,11 +98,8 @@
                 }
             }
 
-
-            //factoryService.infection(vm.array)
             vm.$sessionStorage.formData.infection = vm.array
-            // vm.$sessionStorage.formData.backBtn = $state.$current.toString().substring(5)
-            console.log($sessionStorage.formData)
+            vm.$sessionStorage.formData.totalValue = vm.$sessionStorage.formData.totalValue + vm.$sessionStorage.formData.infectionValue
             vm.$state.go('wean.xray')
         }
     }

@@ -49,6 +49,7 @@
         function activate() {
             console.log('sub-state ' + vm.secretionHeader + ' loaded!')
             if(vm.$sessionStorage.formData.secretionValue != 0){
+                vm.$sessionStorage.formData.totalValue = vm.$sessionStorage.formData.totalValue - vm.$sessionStorage.formData.secretionValue
                 vm.$sessionStorage.formData.secretionValue = 0
             }
             if (vm.$sessionStorage.formData.enum == undefined) {
@@ -70,15 +71,12 @@
         function _enumCalc(e) {
             let x = e.enum,
                 y = e.value
-            vm.array.push(e);
-            //factoryService.secretion(vm.array)
+            vm.array.push(e)
             vm.$sessionStorage.formData.secretion = vm.array
             vm.$sessionStorage.formData.secretionValue = y
-            // vm.$sessionStorage.formData.enum = x + $sessionStorage.formData.enum
             vm.$sessionStorage.formData.enum.push(x)
-            // vm.$sessionStorage.formData.backBtn = $state.$current.toString().substring(5)
+            vm.$sessionStorage.formData.totalValue = vm.$sessionStorage.formData.totalValue + vm.$sessionStorage.formData.secretionValue
             vm.$state.go('wean.lungs')
-            console.log($sessionStorage.formData)
         }
     }
 })();

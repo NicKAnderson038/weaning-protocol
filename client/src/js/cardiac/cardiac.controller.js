@@ -57,6 +57,7 @@
         function activate() {
             console.log('sub-state ' + vm.cardiacHeader + ' loaded!')
             if(vm.$sessionStorage.formData.cardiacValue != 0){
+                vm.$sessionStorage.formData.totalValue = vm.$sessionStorage.formData.totalValue - vm.$sessionStorage.formData.cardiacValue
                 vm.$sessionStorage.formData.cardiacValue = 0
             }
             if (vm.$sessionStorage.formData.enum == undefined) {
@@ -117,7 +118,7 @@
             vm.$sessionStorage.formData.enum.push(x)
             // vm.$sessionStorage.formData.backBtn = $state.$current.toString().substring(5)
             $state.go('wean.neuro')
-            console.log($sessionStorage.formData)
+            vm.$sessionStorage.formData.totalValue = vm.$sessionStorage.formData.totalValue + vm.$sessionStorage.formData.cardiacValue
         }
 
     }

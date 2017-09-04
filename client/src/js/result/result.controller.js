@@ -159,7 +159,7 @@
         ////////////////
 
         function activate() {
-            console.log(vm.$sessionStorage.formData)
+            console.log(vm.$sessionStorage.formData.totalValue)
             if (vm.$sessionStorage.formData.enum == undefined) {
                 return vm.$state.go('wean.landing')
             }

@@ -48,6 +48,7 @@
         function activate() {
             console.log('sub-state ' + vm.labsHeader + ' loaded!')
             if(vm.$sessionStorage.formData.labsValue != 0){
+                vm.$sessionStorage.formData.totalValue = vm.$sessionStorage.formData.totalValue - vm.$sessionStorage.formData.labsValue
                 vm.$sessionStorage.formData.labsValue = 0
             }
             if (vm.$sessionStorage.formData.enum == undefined) {
@@ -85,14 +86,12 @@
         function _selected() {
             let x = vm.array.length,
                 y = 4;
-            //factoryService.labs(vm.array)
-            // vm.$sessionStorage.formData.backBtn = $state.$current.toString().substring(5)
             vm.$sessionStorage.formData.labs = vm.array
             vm.$sessionStorage.formData.labsValue = (x * 2) + (y - x)
-            // vm.$sessionStorage.formData.enum = x * $sessionStorage.formData.enum
             vm.$sessionStorage.formData.enum.push(x)
             console.log($sessionStorage.formData)
             vm.$state.go('wean.cbc')
+            vm.$sessionStorage.formData.totalValue = vm.$sessionStorage.formData.totalValue + vm.$sessionStorage.formData.labsValue
         }
 
     }

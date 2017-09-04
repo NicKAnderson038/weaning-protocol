@@ -26,6 +26,7 @@
         this.lungsValue = 0
         this.cardiacValue = 0
         this.neuroValue = 0
+        this.totalValue = 0
     }
 
 

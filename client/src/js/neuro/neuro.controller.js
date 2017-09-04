@@ -82,6 +82,7 @@
         function activate() {
             console.log('sub-state ' + vm.neuroHeader + ' loaded!')
             if(vm.$sessionStorage.formData.neuroValue != 0){
+                vm.$sessionStorage.formData.totalValue = vm.$sessionStorage.formData.totalValue - vm.$sessionStorage.formData.neuroValue
                 vm.$sessionStorage.formData.neuroValue = 0
             }
             if (vm.$sessionStorage.formData.enum == undefined) {
@@ -157,7 +158,8 @@
             vm.$sessionStorage.formData.enum.push(x)
             // vm.$sessionStorage.formData.backBtn = $state.$current.toString().substring(5)
             $state.go('wean.result')
-            console.log($sessionStorage.formData)
+
+            vm.$sessionStorage.formData.totalValue = vm.$sessionStorage.formData.totalValue + vm.$sessionStorage.formData.neuroValue
         }
 
 
