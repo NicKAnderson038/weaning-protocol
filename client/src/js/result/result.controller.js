@@ -57,7 +57,17 @@
             "valueAxes": [{
                 "id": "ValueAxis-1",
                 "stackType": "regular",
-                "title": "Point Scale"
+                "title": "Point Scale",
+                "guides": [{
+                    "value": 0,
+                    "toValue": 15,
+                    "lineAlpha": 0.8,
+                    "lineColor": "#c00",
+                    "fillColor": "#c00",
+                    "fillAlpha": 0.2,
+                    // "label": "Band #3",
+                    "position": "right"
+                }]
             }],
             "allLabels": [],
             "balloon": {},
