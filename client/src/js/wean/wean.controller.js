@@ -29,7 +29,7 @@
                 ////////////////
 
                 function activate() {
-                        console.log(vm.main + ' loaded!')
+                        console.log(`${vm.main} loaded!`)
                         if (vm.$sessionStorage.formData.enum == undefined) {
                                 return vm.$state.go('wean.landing')
                         }

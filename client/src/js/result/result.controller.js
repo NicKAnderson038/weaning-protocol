@@ -12,12 +12,10 @@
         vm.$state = $state
         vm.$sessionStorage = $sessionStorage
 
-        // vm.goBack = _goBack
         vm.test = _test
-        //vm.factoryTest = _factoryTest
-        let total = vm.$sessionStorage.formData.enum.reduce(function (sum, value) {
-            return sum + value;
-        }, 0);
+        // let total = vm.$sessionStorage.formData.enum.reduce(function (sum, value) {
+        //     return sum + value;
+        // }, 0);
 
         vm.resultHeader = "'result'";
         vm.timeBegin = vm.$sessionStorage.formData.timeBegin
@@ -33,7 +31,7 @@
             },
             "trendLines": [],
             "graphs": [{
-                    "balloonText": "[[title]] of [[category]]:[[value]]",
+                    "balloonText": "[[title]] at [[category]]\nScore: [[value]]",
                     "bullet": "round",
                     // "lineColor": "#00CC00",
                     "id": "AmGraph-1",
@@ -83,36 +81,6 @@
                 //     "column1": 6,
                 //     "column2": 7,
                 //     "column3": 4
-                // },
-                // {
-                //     "category": "Day 3",
-                //     "column1": 2,
-                //     "column2": 3,
-                //     "column3": 6
-                // },
-                // {
-                //     "category": "Day 4",
-                //     "column1": 1,
-                //     "column2": 3,
-                //     "column3": 6
-                // },
-                // {
-                //     "category": "Day 5",
-                //     "column1": 2,
-                //     "column2": 1,
-                //     "column3": 13
-                // },
-                // {
-                //     "category": "Day 6",
-                //     "column1": 3,
-                //     "column2": 2,
-                //     "column3": 5
-                // },
-                // {
-                //     "category": "Day 7",
-                //     "column1": 6,
-                //     "column2": 8,
-                //     "column3": 7
                 // }
             ]
         };
@@ -159,21 +127,17 @@
         ////////////////
 
         function activate() {
-            console.log(vm.$sessionStorage.formData.totalValue)
             if (vm.$sessionStorage.formData.enum == undefined) {
                 return vm.$state.go('wean.landing')
             }
-            //factoryService.lungs(vm.$sessionStorage.lungs)
-            console.log('sub-state ' + vm.resultHeader + ' loaded!');
-            console.log($state.$current.includes["wean.result"]);
-            //vm.timeBegin = vm.$sessionStorage.timeBegin;
+            console.log($state.$current.includes["wean.result"])
             var t2 = new Date();
             var datestring2 = ("0" + (t2.getMonth() + 1)).slice(-2) + "-" + ("0" + t2.getDate()).slice(-2) + "-" + t2.getFullYear() + " " + ("0" + t2.getHours()).slice(-2) + ":" + ("0" + t2.getMinutes()).slice(-2);
             vm.timeEnd = datestring2;
-            //vm.factoryTest()
-            vm.$sessionStorage.formData.xray = vm.array
+            // vm.$sessionStorage.formData.xray = vm.array
             vm.$sessionStorage.formData.timeEnd = datestring2;
-            vm.$sessionStorage.formData.enum = total
+            // vm.$sessionStorage.formData.enum = total
+            vm.$sessionStorage.formData.enum = vm.$sessionStorage.formData.totalValue
             console.log($sessionStorage.formData)
             vm.$sessionStorage.totalData.push($sessionStorage.formData)
             console.log(vm.$sessionStorage.totalData)
@@ -209,18 +173,7 @@
             }
 
 
-
-
-
-
-
-
-
         }
-        // function _factoryTest(){
-        //     let test = factoryService
-        //     console.log(test)
-        // }
 
 
         function _test() {
@@ -235,14 +188,6 @@
             }
 
         }
-
-
-        // function _goBack() {
-        //     if(vm.$sessionStorage.formData.timeEnd != undefined){
-        //         vm.$sessionStorage.formData.timeEnd = undefined
-        //     }
-        //     window.history.back()
-        // }
 
 
     }

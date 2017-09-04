@@ -46,7 +46,6 @@
         ////////////////
 
         function activate() {
-            console.log('sub-state ' + vm.labsHeader + ' loaded!')
             if(vm.$sessionStorage.formData.labsValue != 0){
                 vm.$sessionStorage.formData.totalValue = vm.$sessionStorage.formData.totalValue - vm.$sessionStorage.formData.labsValue
                 vm.$sessionStorage.formData.labsValue = 0

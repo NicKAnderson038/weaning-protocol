@@ -49,7 +49,6 @@
         ////////////////
 
         function activate() {
-            console.log('sub-state ' + vm.sourceHeader + ' loaded!')
             if(vm.$sessionStorage.formData.infectionValue != 0){
                 vm.$sessionStorage.formData.totalValue = vm.$sessionStorage.formData.totalValue - vm.$sessionStorage.formData.infectionValue
                 vm.$sessionStorage.formData.infectionValue = 0

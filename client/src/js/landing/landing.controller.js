@@ -21,7 +21,6 @@
         ////////////////
 
         function activate() {
-            console.log('sub-state ' + vm.landingHeader + ' loaded!')
             if(vm.$sessionStorage.formData.enum > 0){
                 $sessionStorage.formData = new FormDataModel();
             }

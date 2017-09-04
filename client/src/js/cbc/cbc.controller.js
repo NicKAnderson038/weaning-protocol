@@ -53,7 +53,6 @@
         ////////////////
 
         function activate() {
-            console.log('sub-state ' + vm.cbcHeader + ' loaded!')
             if(vm.$sessionStorage.formData.cbcValue != 0){
                 vm.$sessionStorage.formData.totalValue = vm.$sessionStorage.formData.totalValue - vm.$sessionStorage.formData.cbcValue
                 vm.$sessionStorage.formData.cbcValue = 0

@@ -41,7 +41,6 @@
         ////////////////
 
         function activate() {
-            console.log('sub-state ' + vm.contraindicationsHeader + ' loaded!')
             if (vm.$sessionStorage.formData.enum == undefined) {
                 return vm.$state.go('wean.landing')
             }

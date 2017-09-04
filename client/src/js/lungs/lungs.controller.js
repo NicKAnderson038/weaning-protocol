@@ -89,7 +89,6 @@
         ////////////////
 
         function activate() {
-            console.log('sub-state ' + vm.lungsHeader + ' loaded!')
             if (vm.$sessionStorage.formData.enum == undefined) {
                 return vm.$state.go('wean.landing')
             }

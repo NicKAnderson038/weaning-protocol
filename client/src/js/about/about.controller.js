@@ -13,7 +13,7 @@
         ////////////////
 
         function activate() {
-            console.log('sub-state ' + vm.aboutHeader + ' loaded!');
+            console.log(`sub-state ${vm.aboutHeader} loaded!`);
         }
     }
 })();

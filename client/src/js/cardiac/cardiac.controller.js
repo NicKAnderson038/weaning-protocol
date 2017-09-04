@@ -55,7 +55,6 @@
         ////////////////
 
         function activate() {
-            console.log('sub-state ' + vm.cardiacHeader + ' loaded!')
             if(vm.$sessionStorage.formData.cardiacValue != 0){
                 vm.$sessionStorage.formData.totalValue = vm.$sessionStorage.formData.totalValue - vm.$sessionStorage.formData.cardiacValue
                 vm.$sessionStorage.formData.cardiacValue = 0

@@ -53,7 +53,6 @@
         ////////////////
 
         function activate() {
-            console.log('sub-state ' + vm.chestXrayHeader + ' loaded!')
             if(vm.$sessionStorage.formData.xrayValue != 0){
                 vm.$sessionStorage.formData.totalValue = vm.$sessionStorage.formData.totalValue - vm.$sessionStorage.formData.xrayValue
                 vm.$sessionStorage.formData.xrayValue = 0
@@ -64,7 +63,6 @@
         }
 
         function _goBack() {
-            // vm.$state.go($sessionStorage.formData.backBtn)
             if(vm.$sessionStorage.formData.xray != undefined){
                 vm.$sessionStorage.formData.xray = undefined
             }else{

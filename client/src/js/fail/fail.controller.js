@@ -14,7 +14,7 @@
         ////////////////
 
         function activate() {
-            console.log('sub-state ' + vm.failHeader + ' loaded!');
+            console.log(`${vm.failHeader}`);
         }
     }
 })();

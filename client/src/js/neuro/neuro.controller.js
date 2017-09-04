@@ -80,7 +80,6 @@
         ////////////////
 
         function activate() {
-            console.log('sub-state ' + vm.neuroHeader + ' loaded!')
             if(vm.$sessionStorage.formData.neuroValue != 0){
                 vm.$sessionStorage.formData.totalValue = vm.$sessionStorage.formData.totalValue - vm.$sessionStorage.formData.neuroValue
                 vm.$sessionStorage.formData.neuroValue = 0
