@@ -56,11 +56,12 @@
             "guides": [],
             "valueAxes": [{
                 "id": "ValueAxis-1",
+                "maximum": 60,
                 "stackType": "regular",
                 "title": "Point Scale",
                 "guides": [{
                     "value": 0,
-                    "toValue": 15,
+                    "toValue": 10,
                     "lineAlpha": 0.8,
                     "lineColor": "#c00",
                     "fillColor": "#c00",

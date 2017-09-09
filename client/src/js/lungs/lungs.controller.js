@@ -152,7 +152,7 @@
         } else if (x.id === 5 && (x.count.length > 2 || x.count.length < 1 || x.count.charAt(0) === "0")) {
             this.toastr.error("Platue Pressure is incorrect. \nRe-enter Platue.", 'Error');
             return;
-        } else if (x.id === 5 && (this.lungs[3].count < x.count)) {
+        } else if (x.id === 5 && (this.lungs[3].count <= x.count)) {
             this.toastr.error("Platue cannot be greater than PIP. \nRe-enter Platue.", 'Error');
             return;
         }else {

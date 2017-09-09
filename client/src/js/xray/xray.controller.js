@@ -33,15 +33,21 @@
             "value": 2,
             "enum": 2,
             "link": "wean.secretion",
-            "label": "Lobular infiltrate?"
+            "label": "Singular Lobular infiltrate?"
         }, {
             "id": 7,
+            "value": 1,
+            "enum": 2,
+            "link": "wean.secretion",
+            "label": "Multiple Lobular infiltrate?"
+        }, {
+            "id": 8,
             "value": 5,
             "enum": 4,
             "link": "wean.secretion",
-            "label": "Clear chest X-ray?"
+            "label": "Clear of cardio/pulmonary abnormalities?"
         }, {
-            "id": 7,
+            "id": 9,
             "value": 0,
             "enum": 0,
             "link": "wean.secretion",

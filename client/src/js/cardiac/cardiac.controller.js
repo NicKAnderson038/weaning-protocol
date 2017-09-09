@@ -47,7 +47,7 @@
             "value": -4,
             "enum": 3,
             "link": "/",
-            "label": "Symptomatic Pulmonary Hypertension?"
+            "label": "Diagnosed Pulmonary Hypertension?"
         }];
 
         activate();
