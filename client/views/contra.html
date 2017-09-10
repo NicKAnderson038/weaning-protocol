@@ -7,12 +7,22 @@
                     <form role="form" name="myForm">
                         <table>
                             <tr class="form-group" ng-repeat="choice in vm.contraindications">
-                                <th><label><span style="color:red">{{choice.label}}</span></label></th>
+                                <!-- <th><label><span style="color:red">{{choice.label}}</span></label></th>
                                 <th>
                                     <a type="button"
                                            value="Yes"
                                            class="btn btn-danger"
                                            ui-sref="wean.fail">Yes</a>
+                                </th> -->
+                                <th><label><span style="color:red">{{choice.label}}</span></label></th>
+                                <th class="onoff">
+                                    <input type="checkbox"
+                                           id="checkboxID{{choice.id}}"
+                                           required="required"
+                                           value="{{choice.id}}"
+                                           ng-model="choice.selected"
+                                           name="group-one"
+                                           ng-click="vm.enumCalc(choice.label)"/><label for="checkboxID{{choice.id}}"></label>
                                 </th>
                             </tr>
                         </table>

@@ -101,9 +101,6 @@
         }
 
         function _enumCalc(e) {
-            console.log('~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~')
-            console.log(e)
-            console.log(vm.array)
             // if (e.value == true) {
             //     vm.toggler = false
             //     vm.neuro[3].value = false
