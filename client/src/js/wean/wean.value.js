@@ -14,6 +14,7 @@
         this.lungs
         this.cardiac
         this.neuro
+        this.neuromuscular
         this.timeEnd
         this.enum = undefined
         this.dynamicCompliance = 0
@@ -26,6 +27,7 @@
         this.lungsValue = 0
         this.cardiacValue = 0
         this.neuroValue = 0
+        this.neuromuscularValue = 0
         this.totalValue = 0
     }
 

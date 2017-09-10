@@ -45,6 +45,8 @@ import './js/cardiac/cardiac.module.js'
 import './js/cardiac/cardiac.controller.js'
 import './js/neuro/neuro.module.js'
 import './js/neuro/neuro.controller.js'
+import './js/neuromuscular/neuromuscular.module.js'
+import './js/neuromuscular/neuromuscular.controller.js'
 import './js/result/result.module.js'
 import './js/result/result.controller.js'
 
@@ -66,7 +68,8 @@ import './js/result/result.controller.js'
         'app.secretion', 
         'app.lungs', 
         'app.cardiac', 
-        'app.neuro', 
+        'app.neuro',
+        'app.neuromuscular', 
         'app.result',
         'app.services',
         'app.factory',
@@ -159,6 +162,11 @@ import './js/result/result.controller.js'
             url: '/neuro',
             templateUrl: 'views/neuro.html',
             controller: 'Neuro',
+            controllerAs: 'vm'
+        }).state('wean.neuromuscular', {
+            url: '/neuromuscular',
+            templateUrl: 'views/neuromuscular.html',
+            controller: 'Neuromuscular',
             controllerAs: 'vm'
         }).state('wean.result', {
             url: '/result',
