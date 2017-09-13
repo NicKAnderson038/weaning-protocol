@@ -23,7 +23,7 @@
         }, {
             "id": 2,
             "selected": false,
-            "label": "fiO2 > 50% and Peep >= 8?"
+            "label": "fiO2 > 50% and Peep > 8?"
         }, {
             "id": 3,
             "selected": false,
@@ -80,7 +80,7 @@
             if(vm.array.length > 0){
                 vm.$state.go('wean.fail')
             }else{
-                vm.$state.go('wean.cbc')
+                vm.$state.go('wean.labs')
             }           
             
         }

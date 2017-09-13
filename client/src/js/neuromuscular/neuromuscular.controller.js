@@ -31,7 +31,7 @@
             "label": "NIF Within Normal Limits?"
         }, {
             "id": 2,
-            "value": -2,
+            "value": 0,
             "enum": 3,
             "label": "Spirometry NOT performed?"
         }]

@@ -19,17 +19,17 @@
         vm.secretionHeader = "Secretions"
         vm.secretion = [{
             "id": 0,
-            "value": 3,
+            "value": 1,
             "enum": 3,
             "label": "Small/None from succoning?"
         }, {
             "id": 1,
-            "value": 3,
+            "value": 1,
             "enum": 3,
             "label": "Moderate amount from succoning?"
         }, {
             "id": 2,
-            "value": 1,
+            "value": 0,
             "enum": 2,
             "label": "Large amount from succoning?"
         }, {

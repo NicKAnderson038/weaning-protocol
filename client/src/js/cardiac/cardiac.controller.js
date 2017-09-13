@@ -24,7 +24,7 @@
                     "label": "Normal BP without Vasopressor?"
                 }, {
                     "id": 2,
-                    "value": -1,
+                    "value": 0,
                     "enum": 2,
                     "label": "Normotensive or stable BP on LOW dosage of Vasopressor?"
                 },
@@ -41,7 +41,7 @@
                     "label": "Normal Sinus Rhythm?"
                 }, {
                     "id": 4,
-                    "value": -4,
+                    "value": 0,
                     "enum": 3,
                     "label": "Diagnosed Pulmonary Hypertension?"
                 }

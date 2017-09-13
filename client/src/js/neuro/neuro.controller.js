@@ -32,7 +32,7 @@
             "id": 2,
             "value": 5,
             "enum": 3,
-            "label": "Patient alert and following commands?"
+            "label": "Patient awake and following commands?"
         }, {
             "id": 3,
             "value": 0,
