@@ -29,6 +29,8 @@ import './js/contraindications/contra.module.js'
 import './js/contraindications/contra.controller.js'
 import './js/fail/fail.module.js'
 import './js/fail/fail.controller.js'
+import './js/lab-values/labvalues.module.js'
+import './js/lab-values/labvalues.controller.js'
 import './js/labs/labs.module.js'
 import './js/labs/labs.controller.js'
 import './js/cbc/cbc.module.js'
@@ -61,7 +63,8 @@ import './js/result/result.controller.js'
         'app.landing', 
         'app.contra', 
         'app.fail', 
-        'app.labs', 
+        'app.labs',
+        'app.lab-values',
         'app.cbc', 
         'app.infection', 
         'app.xray', 
@@ -122,6 +125,11 @@ import './js/result/result.controller.js'
             url: '/fail',
             templateUrl: 'views/fail.html',
             controller: 'Fail',
+            controllerAs: 'vm'
+        }).state('wean.lab-values', {
+            url: '/lab-values',
+            templateUrl: 'views/lab-values.html',
+            controller: 'LabValues',
             controllerAs: 'vm'
         }).state('wean.labs', {
             url: '/labs',

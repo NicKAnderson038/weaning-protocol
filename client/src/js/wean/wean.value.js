@@ -6,6 +6,7 @@
     function FormDataModel() {
 
         this.timeBegin
+        this.lab_values
         this.labs
         this.cbc
         this.infection

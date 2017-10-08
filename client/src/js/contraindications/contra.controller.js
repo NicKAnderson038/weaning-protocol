@@ -80,7 +80,7 @@
             if(vm.array.length > 0){
                 vm.$state.go('wean.fail')
             }else{
-                vm.$state.go('wean.labs')
+                vm.$state.go('wean.lab-values')
             }           
             
         }
