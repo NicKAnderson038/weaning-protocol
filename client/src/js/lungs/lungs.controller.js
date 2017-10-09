@@ -95,6 +95,7 @@
         }
     }
 
+    let count
     function _goBack() {
         // this.$state.go(this.$sessionStorage.formData.backBtn)
         if(this.$sessionStorage.formData.lungs != undefined){
@@ -118,6 +119,11 @@
     function _toggle(x) {
         //if ($state.$current.includes["wean.lungs"] === true) {
         console.log(x);
+
+        if (x.count != "") {
+            count = parseFloat(x.count)
+        }
+
         if (x.count == "") {
             //do nothing
         } else {
@@ -134,26 +140,32 @@
             // console.log(x.count)
             this.disabled2 = false
             x.toggle = false
-        } else if ((x.id === 1 && x.count.toString() != '100') && (x.count.length > 2 || x.count.length < 2 || x.count.charAt(0) === "0" || x.count.charAt(0) === "1")) {
+        } else if (x.id === 1 && (count > 100)) {
             this.toastr.error("FiO2 is incorrect. \nRe-enter FiO2.", 'Error')
             return
-        } else if (x.id === 1 && x.count.charAt(0) === "2" && x.count.charAt(1) === "0") {
-            this.toastr.error('FiO2 20%? \nOnly possible in a hypoberic Chamber.', 'Error')
+        } else if (x.id === 1 && (count <= 20)) {
+            this.toastr.error(`FiO2 ${count}? \nOnly possible in a hypoberic Chamber.`, 'Error')
             return
-        } else if (x.id === 2 && (x.count.length > 3 || x.count.length < 3 || x.count.charAt(0) === "0" || x.count.charAt(0) === "1" || x.count.charAt(0) === "9")) {
+        } else if (x.id === 2 && ((count > 1200) || (count < 150))) {
             toastr.error("Tidal Volume is incorrect. \nRe-enter Vt.");
             return;
-        } else if (x.id === 3 && (x.count.length > 2 || x.count.length < 1 || x.count.charAt(1) === "3" || x.count.charAt(1) === "4" || x.count.charAt(1) === "5" || x.count.charAt(1) === "6" || x.count.charAt(1) === "7" || x.count.charAt(1) === "8" || x.count.charAt(1) === "9")) {
+        } else if (x.id === 3 && ((count > 20) || (count < 2))) {
             this.toastr.error("PEEP is incorrect. \nRe-enter PEEP.", 'Error');
             return;
-        } else if (x.id === 4 && (x.count.length > 2 || x.count.length < 2 || x.count.charAt(0) === "0" || x.count.charAt(0) === "7" || x.count.charAt(0) === "8" || x.count.charAt(0) === "9")) {
-            this.toastr.error("PIP is incorrect. \nRe-enter PIP.", 'Error');
+        } else if (x.id === 4 && (count <= 10)) {
+            this.toastr.warning("PIP is too low. \nCheck Vent & cuff for leak.", 'Warning');
             return;
-        } else if (x.id === 5 && (x.count.length > 2 || x.count.length < 1 || x.count.charAt(0) === "0")) {
+        } else if (x.id === 4 && (count > 45)) {
+            this.toastr.warning("PIP is too high. \nCheck Vent, circut or patient for an obstruction.", 'Warning');
+            return;
+        }else if (x.id === 5 && ((count > 30) || (count < 2))) {
             this.toastr.error("Platue Pressure is incorrect. \nRe-enter Platue.", 'Error');
             return;
-        } else if (x.id === 5 && (this.lungs[3].count <= x.count)) {
-            this.toastr.error("Platue cannot be greater than PIP. \nRe-enter Platue.", 'Error');
+        } else if (x.id === 5 && ((parseFloat(this.lungs[3].count)) <= count)) {
+            this.toastr.error("Platue cannot be greater or equal to PIP. \nRe-enter Platue.", 'Error');
+            return;
+        } else if (x.id === 5 && (((parseFloat(this.lungs[3].count)) < 15) && (count < 5))) {
+            this.toastr.error("If PIP is less than 15, then Platue cannot be less than 5. \nCheck patient and ventilator for an issue.", 'Error');
             return;
         }else {
             // console.log("close");

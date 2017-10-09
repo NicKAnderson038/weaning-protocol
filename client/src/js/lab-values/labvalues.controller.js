@@ -21,13 +21,14 @@
         vm.disabled2 = true;
         var disabled = true;
         var disabled2 = true;
+        //vm.input_box_lg = ''
         vm.array = [];
         vm.labValuesHeader = "Lab Values";
         vm.lab_values = [{
                 "id": 1,
                 "enum": 64,
                 "count": "",
-                "symbol": " %",
+                "symbol": "",
                 "link": "wean.result",
                 "label": "Bun",
                 "button": false,
@@ -37,7 +38,7 @@
                 "id": 2,
                 "enum": 64,
                 "count": "",
-                "symbol": " mL",
+                "symbol": "",
                 "link": "wean.result",
                 "label": "Creatine",
                 "button": true,
@@ -47,7 +48,7 @@
                 "id": 3,
                 "enum": 128,
                 "count": "",
-                "symbol": " cmH2O",
+                "symbol": "",
                 "link": "wean.result",
                 "label": "BNP",
                 "button": true,
@@ -57,7 +58,7 @@
                 "id": 4,
                 "enum": 128,
                 "count": "",
-                "symbol": " cmH2O",
+                "symbol": "",
                 "link": "wean.result",
                 "label": "GFR",
                 "button": true,
@@ -77,13 +78,19 @@
                 "id": 5,
                 "enum": 128,
                 "count": "",
-                "symbol": " cmH2O",
+                "symbol": "",
                 "link": "wean.result",
                 "label": "WBC",
                 "button": true,
                 "toggle": true
             }
         ];
+
+        vm.wbc = {
+            "id": 1,
+            "selected": false,
+            "label": "WBC Unknown?"
+        }
 
         activate();
 
@@ -97,6 +104,7 @@
     }
 
     let count
+
     function _goBack() {
         // this.$state.go(this.$sessionStorage.formData.backBtn)
         if (this.$sessionStorage.formData.lab_values != undefined) {
@@ -134,8 +142,10 @@
 
         if (x.count == "") {
             //do nothing
+            //vm.input_box_lg = ""
         } else {
             this.array.push(x);
+            //vm.input_box_lg = vm.input_box_lg + x.count
             // console.log(this.array)
         }
         // console.log(x.toggle)

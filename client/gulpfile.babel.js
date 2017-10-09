@@ -30,6 +30,7 @@ const css = [
   "src/css/checkbox.css",
   "src/css/font-awesome.min.css",
   "src/css/hoverex-all.css",
+  "src/css/keypad.css",
   "src/css/prettyPhoto.css",
   "src/css/style.css",
 ]
