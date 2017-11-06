@@ -6,9 +6,11 @@
             <p>Click to begin checking to begin the weaning procedure.</p>
             <form role="form">
                 <br />
-                <a ui-sref="wean.contra" type="button" 
-                class="btn btn-primary"
-                ng-click="vm.selected()">Lets Begin!</a>
+                <a ui-sref="wean.contra" type="button" class="btn btn-primary" ng-click="vm.selected()">Let's Begin!</a>
+
+                <br>
+                <button type="button" class="btn btn-primary" ng-if="!vm.auth.isAuthenticated()" ng-click="vm.auth.login()">LOGIN</button>
+                <button type="button" class="btn btn-primary" ng-if="vm.auth.isAuthenticated()" ng-click="vm.auth.logout()">LOGOUT</button>
                 <br />
                 <br />
                 <br />
@@ -16,16 +18,23 @@
         </div>
         <div class="col-lg-4">
             <h4>Patient Normal Values examples</h4>
-                    <div class="hline"></div>
-                    <p>
-                        <b>Saturation: FiO2 <= 50%</b><br />
-                    </p>
-                    <p>
-                        <b>Peep: Peep <= 8</b><br />
-                    </p>
-                    <p>
-                        <b>Patient on <u>No</u> or <u>Low</u> dosage of Vasopressor</b><br />
-                    </p>
+            <div class="hline"></div>
+            <p>
+                <b>Saturation: FiO2
+                    <=5 0%</b>
+                        <br />
+            </p>
+            <p>
+                <b>Peep: Peep
+                    <=8 </b>
+                        <br />
+            </p>
+            <p>
+                <b>Patient on
+                    <u>No</u> or
+                    <u>Low</u> dosage of Vasopressor</b>
+                <br />
+            </p>
         </div>
     </div>
 </div>

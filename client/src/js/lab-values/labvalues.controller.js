@@ -64,16 +64,6 @@
                 "button": true,
                 "toggle": true
             },
-            // {
-            //     "id": 4,
-            //     "enum": 128,
-            //     "count": "",
-            //     "symbol": " cmH2O",
-            //     "link": "wean.result",
-            //     "label": "PEEP",
-            //     "button": true,
-            //     "toggle": true
-            // }, 
             {
                 "id": 5,
                 "enum": 128,
