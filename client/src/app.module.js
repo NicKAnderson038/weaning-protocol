@@ -4,8 +4,6 @@ import "ng-storage";
 import "angular-toastr";
 import "angular-animate";
 import "angular-resource";
-// import "auth0-js";
-import "angular-auth0";
 // import 'bootstrap'
 // import jQuery from 'jquery'
 
@@ -17,9 +15,14 @@ import "./js/components/amchartDirective/amchart-serial.js";
 
 import "./app.factory.js";
 import "./app.services.js";
-import "./app.service.js"; // auth0
-// import "./app.directive.js"; // auth0
-// import "./app.run.js"; // auth0
+import "./app.authservice.js"; // cognito
+import "./js/auth/login.module.js";
+import "./js/auth/login.controller.js";
+import "./js/auth/signup.module.js";
+import "./js/auth/signup.controller.js";
+import "./js/auth/activate.module.js";
+import "./js/auth/activate.controller.js";
+
 import "./js/wean/wean.module.js";
 import "./js/wean/wean.controller.js";
 import "./js/wean/wean.value.js";
@@ -77,29 +80,22 @@ import "./js/result/result.controller.js";
       "app.result",
       "app.services",
       "app.factory",
-      "app.service",
-      //   "app.run",
-      //   "app.directive",
+      "app.authservice",
+      "app.login",
+      "app.activate",
+      "app.signup",
       "app.amchartDirective.serial",
       "AngularAmChart",
       "ui.router",
       "ngStorage",
       "toastr",
       "ngAnimate",
-      "ngResource",
-      "auth0.auth0"
+      "ngResource"
     ])
     .config([
       "$stateProvider",
-      "$locationProvider",
       "$urlRouterProvider",
-      "angularAuth0Provider",
-      function(
-        $stateProvider,
-        $locationProvider,
-        $urlRouterProvider,
-        angularAuth0Provider
-      ) {
+      function($stateProvider, $urlRouterProvider) {
         $urlRouterProvider.when("", "/wean/landing");
         $urlRouterProvider.rule(function($injector, $location) {
           //what this function returns will be set as the $location.url
@@ -111,17 +107,6 @@ import "./js/result/result.controller.js";
             $location.replace().path(normalized);
           }
           // because we've returned nothing, no state change occurs
-        });
-
-        // Initialization for the angular-auth0 library
-        angularAuth0Provider.init({
-          clientID: "rAFENk9DAtgFot5yxcTsMPq2lpz6w-Pz",
-          domain: "idealapproach.auth0.com",
-          responseType: "token id_token",
-          audience: "https://idealapproach.auth0.com/userinfo",
-          redirectUri: "http://localhost:8110/#!/wean/landing",
-          //   redirectUri: "http://localhost:8110/#!/wean/contra",
-          scope: "openid"
         });
 
         $stateProvider
@@ -222,10 +207,26 @@ import "./js/result/result.controller.js";
             templateUrl: "views/result.html",
             controller: "Result",
             controllerAs: "vm"
+          })
+          /* Auth Section */
+          .state("wean.login", {
+            url: "/login",
+            templateUrl: "views/login.html",
+            controller: "Login",
+            controllerAs: "vm"
+          })
+          .state("wean.signup", {
+            url: "/signup",
+            templateUrl: "views/signup.html",
+            controller: "Signup",
+            controllerAs: "vm"
+          })
+          .state("wean.activate", {
+            url: "/activate",
+            templateUrl: "views/activate.html",
+            controller: "Activate",
+            controllerAs: "vm"
           });
-
-        // $locationProvider.html5Mode(true);
-        // $locationProvider.hashPrefix("#!");
 
         // $urlRouterProvider.otherwise('/wean/landing');
         $urlRouterProvider.otherwise(function($injector) {

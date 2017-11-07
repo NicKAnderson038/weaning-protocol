@@ -8,8 +8,7 @@
     "$state",
     "$sessionStorage",
     "FormDataModel",
-    "factoryService",
-    "authService"
+    "factoryService"
   ];
 
   function Landing(
@@ -17,16 +16,13 @@
     $state,
     $sessionStorage,
     FormDataModel,
-    factoryService,
-    authService
+    factoryService
   ) {
     var vm = this;
 
     vm.$scope = $scope;
     vm.$state = $state;
     vm.$sessionStorage = $sessionStorage;
-    vm.auth = authService;
-    console.log(vm.auth);
 
     vm.selected = _selected;
 
