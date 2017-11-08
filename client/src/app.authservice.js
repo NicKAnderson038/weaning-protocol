@@ -1,38 +1,37 @@
 (function() {
   "use strict";
 
-  angular.module("app.authservice", []).service("authService", authService);
+  angular.module("app.authservice", []).service("AuthService", AuthService);
 
-  authService.$inject = ["$scope ", "$state", "$timeout"];
+  AuthService.$inject = ["$state", "$timeout"];
 
-  function authService($scope, $state, $timeout) {
+  function AuthService($state, $timeout) {
     var vm = this;
-    vm.$scope = $scope;
     vm.$state = $state;
     vm.$timeout = $timeout;
 
     AWS.config.region = "us-east-2";
     AWS.config.credentials = new AWS.CognitoIdentityCredentials({
-      IdentityPoolId: "us-east-2:60c2a0ab-c3ee-11e7-876d-99d41e08ac2e"
+      IdentityPoolId: "us-east-2:558c322b-c423-11e7-b674-7b73904ddbe0"
     });
 
     // Cognito User Pool Id
     AWSCognito.config.region = "us-east-2";
     AWSCognito.config.credentials = new AWS.CognitoIdentityCredentials({
-      IdentityPoolId: "us-east-2:60c2a0ab-c3ee-11e7-876d-99d41e08ac2e"
+      IdentityPoolId: "us-east-2:558c322b-c423-11e7-b674-7b73904ddbe0"
     });
 
-    function getUserPool() {
+    vm.getUserPool = () => {
       let poolData = {
-        UserPoolId: "us-east-1_0CZySXtci",
-        ClientId: "3gh9pap7pp23sqt08s9ocvp8id"
+        UserPoolId: "us-east-1_S6PamBeYe",
+        ClientId: "30njf48ug7cgvq8id7bshqnt1u"
       };
       let userPool = new AWSCognito.CognitoIdentityServiceProvider
         .CognitoUserPool(poolData);
       return userPool;
-    }
+    };
 
-    function getUser(userPool, username) {
+    vm.getUser = (userPool, username) => {
       let userData = {
         Username: username,
         Pool: userPool
@@ -40,9 +39,9 @@
       let cognitoUser = new AWSCognito.CognitoIdentityServiceProvider
         .CognitoUser(userData);
       return cognitoUser;
-    }
+    };
 
-    function getAuthenticationDetails(username, password) {
+    vm.getAuthenticationDetails = (username, password) => {
       let authenticationData = {
         Username: username,
         Password: password
@@ -50,9 +49,9 @@
       let authenticationDetails = new AWSCognito.CognitoIdentityServiceProvider
         .AuthenticationDetails(authenticationData);
       return authenticationDetails;
-    }
+    };
 
-    function getUserAttributes() {
+    vm.getUserAttributes = function() {
       let attributes = [];
       for (let i = 0; i < arguments.length; i++) {
         let attr = new AWSCognito.CognitoIdentityServiceProvider
@@ -60,6 +59,6 @@
         attributes.push(attr);
       }
       return attributes;
-    }
+    };
   }
 })();

@@ -1,7 +1,7 @@
 {
-  "name": "Weaning_protocol",
+  "name": "weaning-protocol",
   "version": "1.0.0",
-  "description": "* Express * MongoDB",
+  "description": "Testing application",
   "main": "index.js",
   "author": "Nick Anderson & Tim Truong",
   "license": "Copy Right",
@@ -11,7 +11,8 @@
     "clean": "rm -rf client/dist",
     "build": "gulp --gulpfile client/gulpfile.babel.js",
     "dev": "rm -rf client/dist && gulp --gulpfile client/gulpfile.babel.js",
-    "prod": "rm -rf client/dist && cross-env NODE_ENV=production gulp --gulpfile client/gulpfile.babel.js",
+    "prod":
+      "rm -rf client/dist && cross-env NODE_ENV=production gulp --gulpfile client/gulpfile.babel.js",
     "start": "node express_server/app.js"
   },
   "dependencies": {

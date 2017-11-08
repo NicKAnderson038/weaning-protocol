@@ -3,13 +3,18 @@
 
   angular.module("app.login").controller("Login", Login);
 
-  Login.$inject = ["$scope", "authService"];
-  function Login($scope, authService) {
+  Login.$inject = ["$scope", "$state", "AuthService"];
+  function Login($scope, $state, AuthService) {
     var vm = this;
-    vm.auth = authService;
+    vm.$scope = $scope;
+    vm.$state = $state;
+    vm.auth = AuthService;
     console.log(vm.auth);
 
+    vm.errorMessage = "";
     vm.loginHeader = "'login'";
+    vm.submit = _submit;
+
     activate();
 
     ////////////////
@@ -17,5 +22,33 @@
     function activate() {
       console.log(`sub-state ${vm.loginHeader} loaded!`);
     }
+
+    function _submit() {
+      let userPool = vm.auth.getUserPool();
+
+      let cognitoUser = vm.auth.getUser(userPool, $("#email").val());
+      let authenticationDetails = vm.auth.getAuthenticationDetails(
+        $("#email").val(),
+        $("#password").val()
+      );
+
+      cognitoUser.authenticateUser(authenticationDetails, {
+        onSuccess: function(result) {
+          let accessToken = result.getAccessToken().getJwtToken();
+          $scope.accessToken = accessToken;
+
+          let currentUser = userPool.getCurrentUser();
+
+          vm.$state.go("wean.landing");
+          $scope.$apply();
+        },
+        onFailure: function(err) {
+          vm.errorMessage = "E-mail address or password is wrong.";
+          $scope.$apply();
+        }
+      });
+    }
+
+    return false;
   }
 })();

@@ -8,7 +8,8 @@
     "$state",
     "$sessionStorage",
     "FormDataModel",
-    "factoryService"
+    "factoryService",
+    "AuthService"
   ];
 
   function Landing(
@@ -16,13 +17,15 @@
     $state,
     $sessionStorage,
     FormDataModel,
-    factoryService
+    factoryService,
+    AuthService
   ) {
     var vm = this;
 
     vm.$scope = $scope;
     vm.$state = $state;
     vm.$sessionStorage = $sessionStorage;
+    vm.auth = AuthService;
 
     vm.selected = _selected;
 
@@ -37,6 +40,16 @@
         $sessionStorage.formData = new FormDataModel();
       }
       console.log($sessionStorage.formData);
+
+      let userPool = vm.auth.getUserPool();
+      let currentUser = userPool.getCurrentUser();
+      console.log("Auth Result");
+      if (currentUser === null) {
+        vm.$state.go("wean.login");
+      } else {
+        console.log(currentUser);
+        console.log(currentUser.username);
+      }
     }
 
     function _selected() {
