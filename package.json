@@ -11,8 +11,7 @@
     "clean": "rm -rf client/dist",
     "build": "gulp --gulpfile client/gulpfile.babel.js",
     "dev": "rm -rf client/dist && gulp --gulpfile client/gulpfile.babel.js",
-    "prod":
-      "rm -rf client/dist && cross-env NODE_ENV=production gulp --gulpfile client/gulpfile.babel.js",
+    "prod": "rm -rf client/dist && cross-env NODE_ENV=production gulp --gulpfile client/gulpfile.babel.js",
     "start": "node express_server/app.js"
   },
   "dependencies": {
@@ -39,6 +38,7 @@
     "gulp-if": "^2.0.2",
     "gulp-imagemin": "^3.3.0",
     "gulp-jsonminify": "^1.0.0",
+    "gulp-real-favicon": "^0.2.2",
     "gulp-sourcemaps": "^2.6.0",
     "gulp-uglify": "^3.0.0",
     "vinyl-buffer": "^1.0.0",
