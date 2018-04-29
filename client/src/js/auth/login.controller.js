@@ -20,7 +20,17 @@
     ////////////////
 
     function activate() {
-      console.log(`sub-state ${vm.loginHeader} loaded!`);
+      console.log(
+        `sub-state ${vm.loginHeader} loaded! and auth firstActive is ${
+          vm.auth.firstActivated
+        }`
+      );
+      if (vm.auth.firstActivated) {
+        let userPool = vm.auth.getUserPool();
+        let currentUser = userPool.getCurrentUser();
+        console.log("Current user is NOT null, logout action");
+        vm.auth.logout(currentUser.pool, currentUser.username);
+      }
     }
 
     function _submit() {

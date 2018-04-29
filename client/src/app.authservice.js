@@ -7,6 +7,7 @@
 
   function AuthService($state, $timeout) {
     var vm = this;
+    vm.firstActivated = false;
     vm.$state = $state;
     vm.$timeout = $timeout;
 
@@ -26,18 +27,21 @@
         UserPoolId: "us-east-1_S6PamBeYe",
         ClientId: "30njf48ug7cgvq8id7bshqnt1u"
       };
-      let userPool = new AWSCognito.CognitoIdentityServiceProvider
-        .CognitoUserPool(poolData);
+      let userPool = new AWSCognito.CognitoIdentityServiceProvider.CognitoUserPool(
+        poolData
+      );
       return userPool;
     };
 
     vm.getUser = (userPool, username) => {
+      vm.firstActivated = true;
       let userData = {
         Username: username,
         Pool: userPool
       };
-      let cognitoUser = new AWSCognito.CognitoIdentityServiceProvider
-        .CognitoUser(userData);
+      let cognitoUser = new AWSCognito.CognitoIdentityServiceProvider.CognitoUser(
+        userData
+      );
       return cognitoUser;
     };
 
@@ -46,19 +50,37 @@
         Username: username,
         Password: password
       };
-      let authenticationDetails = new AWSCognito.CognitoIdentityServiceProvider
-        .AuthenticationDetails(authenticationData);
+      let authenticationDetails = new AWSCognito.CognitoIdentityServiceProvider.AuthenticationDetails(
+        authenticationData
+      );
       return authenticationDetails;
     };
 
     vm.getUserAttributes = function() {
       let attributes = [];
       for (let i = 0; i < arguments.length; i++) {
-        let attr = new AWSCognito.CognitoIdentityServiceProvider
-          .CognitoUserAttribute(arguments[i]);
+        let attr = new AWSCognito.CognitoIdentityServiceProvider.CognitoUserAttribute(
+          arguments[i]
+        );
         attributes.push(attr);
       }
       return attributes;
+    };
+
+    vm.logout = (userPool, username) => {
+      // console.log("Service logout go!!!!!!!! ", userPool, username);
+      vm.firstActivated = false;
+      let userData = {
+        Username: username,
+        Pool: userPool
+      };
+      let cognitoUser = new AWSCognito.CognitoIdentityServiceProvider.CognitoUser(
+        userData
+      ).signOut();
+      // let cognitoUser = new AWSCognito.CognitoIdentityServiceProvider.CognitoUser(
+      //   userData
+      // ).globalSignOut();
+      return cognitoUser;
     };
   }
 })();

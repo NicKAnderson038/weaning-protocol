@@ -49,6 +49,7 @@
       } else {
         console.log(currentUser);
         console.log(currentUser.username);
+        console.log(currentUser.pool.clientId);
       }
     }
 
