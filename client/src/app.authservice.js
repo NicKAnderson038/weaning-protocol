@@ -13,19 +13,19 @@
 
     AWS.config.region = "us-east-2";
     AWS.config.credentials = new AWS.CognitoIdentityCredentials({
-      IdentityPoolId: "us-east-2:558c322b-c423-11e7-b674-7b73904ddbe0"
+      IdentityPoolId: "us-east-2:XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX"
     });
 
     // Cognito User Pool Id
     AWSCognito.config.region = "us-east-2";
     AWSCognito.config.credentials = new AWS.CognitoIdentityCredentials({
-      IdentityPoolId: "us-east-2:558c322b-c423-11e7-b674-7b73904ddbe0"
+      IdentityPoolId: "us-east-2:XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX"
     });
 
     vm.getUserPool = () => {
       let poolData = {
         UserPoolId: "us-east-1_S6PamBeYe",
-        ClientId: "30njf48ug7cgvq8id7bshqnt1u"
+        ClientId: "XXXXXXXXXXXXXXXXXXXXXXXXXX"
       };
       let userPool = new AWSCognito.CognitoIdentityServiceProvider.CognitoUserPool(
         poolData
